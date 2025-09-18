@@ -1,0 +1,155 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            String         @id @default(uuid())
+  name          String
+  email         String         @unique
+  phone         String?        @unique
+  password      String
+  avatar        String?
+  isVerified    Boolean        @default(false)
+  role          Role           @default(USER)
+  bankAccounts  BankAccount[]
+  fundings      Funding[]
+  transactions  Transaction[]
+  subscriptions Subscription[]
+  createdAt     DateTime       @default(now())
+  updatedAt     DateTime       @updatedAt
+}
+
+model BankAccount {
+  id            String    @id @default(uuid())
+  userId        String
+  user          User      @relation(fields: [userId], references: [id])
+  bankCode      String
+  accountNumber String
+  accountName   String
+  isDefault     Boolean   @default(false)
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  @@unique([userId, bankCode, accountNumber])
+}
+
+model FundingPlatform {
+  id          String    @id @default(uuid())
+  name        String    @unique
+  type        PlatformType
+  description String?
+  apiUrl      String?
+  isActive    Boolean   @default(true)
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  fundings    Funding[]
+}
+
+model Funding {
+  id          String          @id @default(uuid())
+  userId      String
+  user        User            @relation(fields: [userId], references: [id])
+  platformId  String
+  platform    FundingPlatform @relation(fields: [platformId], references: [id])
+  amount      Float
+  profitShare Float
+  status      FundingStatus   @default(ACTIVE)
+  transactions Transaction[]
+  createdAt   DateTime        @default(now())
+  updatedAt   DateTime        @updatedAt
+}
+
+model Transaction {
+  id          String        @id @default(uuid())
+  userId      String
+  user        User          @relation(fields: [userId], references: [id])
+  fundingId   String?
+  funding     Funding?      @relation(fields: [fundingId], references: [id])
+  type        TransactionType
+  amount      Float
+  status      TransactionStatus @default(PENDING)
+  description String?
+  metadata    Json?
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+}
+
+model Subscription {
+  id          String            @id @default(uuid())
+  userId      String
+  user        User              @relation(fields: [userId], references: [id])
+  planId      String
+  amount      Float
+  startDate   DateTime
+  endDate     DateTime
+  status      SubscriptionStatus @default(ACTIVE)
+  autoRenew   Boolean           @default(true)
+  paymentId   String?
+  cancelledAt DateTime?
+  createdAt   DateTime          @default(now())
+  updatedAt   DateTime          @updatedAt
+}
+
+model SubscriptionPlan {
+  id          String    @id @default(uuid())
+  name        String    @unique
+  description String?
+  price       Float
+  duration    Int       // in days
+  isActive    Boolean   @default(true)
+  features    Json      // Store as JSON array
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+}
+
+enum Role {
+  USER
+  ADMIN
+  SUPER_ADMIN
+}
+
+enum PlatformType {
+  ADS
+  SURVEY
+  INVESTMENT
+  AFFILIATE
+  OTHER
+}
+
+enum FundingStatus {
+  ACTIVE
+  PAUSED
+  COMPLETED
+  CANCELLED
+}
+
+enum TransactionType {
+  DEPOSIT
+  WITHDRAWAL
+  PROFIT
+  SUBSCRIPTION
+  REFUND
+}
+
+enum TransactionStatus {
+  PENDING
+  COMPLETED
+  FAILED
+  CANCELLED
+}
+
+enum SubscriptionStatus {
+  ACTIVE
+  CANCELLED
+  EXPIRED
+  PAYMENT_FAILED
+  RENEWED
+}
