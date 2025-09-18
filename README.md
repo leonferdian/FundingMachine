@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Funding Machine
 
 A Flutter application with a Node.js/TypeScript backend for managing funding and subscriptions.
@@ -54,3 +55,7 @@ A Flutter application with a Node.js/TypeScript backend for managing funding and
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+=======
+# FundingMachine
+Future work dream
+>>>>>>> b043a3360c9a3a506908a1fd8287abd753fcbd48

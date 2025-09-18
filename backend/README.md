@@ -280,22 +280,53 @@ npm run test:coverage
 - `FIREBASE_*` - Firebase Admin SDK credentials
 - `OPENAI_API_KEY` - OpenAI API key for AI features
 - `MIDTRANS_*` - Midtrans payment gateway credentials
-- `XENDIT_API_KEY` - Xendit payment gateway API key
 
 ## Project Structure
 
-```
-src/
-├── config/         # Configuration files
-├── controllers/    # Route controllers
-├── middleware/     # Express middlewares
-├── models/         # Database models
-├── routes/         # API routes
-├── services/       # Business logic
-├── types/          # TypeScript type definitions
-└── utils/          # Utility functions
-```
-
-## License
-
-MIT
+```bash
+backend/
+├── src/
+│   ├── config/           # Configuration files
+│   │   ├── config.ts     # Application configuration
+│   │   ├── database.ts   # Database connection
+│   │   └── di.config.ts  # Dependency injection setup
+│   │
+│   ├── controllers/      # Route controllers
+│   ├── interfaces/       # TypeScript interfaces
+│   ├── middleware/       # Express middleware
+│   │   ├── auth.middleware.ts  # Authentication middleware
+│   │   └── error.middleware.ts # Error handling middleware
+│   │
+│   ├── repositories/     # Data access layer
+│   │   ├── base.repository.ts  # Base repository
+│   │   ├── user.repository.ts  # User repository
+│   │   └── index.ts      # Repository exports
+│   │
+│   ├── services/         # Business logic
+│   │   ├── base.service.ts     # Base service
+│   │   ├── user.service.ts     # User service
+│   │   └── index.ts      # Service exports
+│   │
+│   ├── routes/           # API routes
+│   ├── utils/            # Utility functions
+│   ├── validations/      # Request validations
+│   ├── app.ts            # Express application
+│   └── server.ts         # Server entry point
+│
+├── prisma/
+│   ├── migrations/       # Database migrations
+│   └── schema.prisma    # Prisma schema
+│
+├── src/__tests__/        # Test files
+│   ├── setup.ts          # Test setup
+│   ├── jest.setup.ts     # Jest configuration
+│   └── services/         # Service tests
+│
+├── .env                  # Environment variables
+├── .eslintrc.js          # ESLint configuration
+├── .prettierrc           # Prettier configuration
+├── .husky/               # Git hooks
+│   └── pre-commit        # Pre-commit hook
+├── jest.config.js        # Jest configuration
+├── package.json          # Project dependencies
+└── tsconfig.json         # TypeScript configuration
