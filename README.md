@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Funding Machine
 
 A Flutter application with a Node.js/TypeScript backend for managing funding and subscriptions.

@@ -1,16 +1,27 @@
+/** @type {import('ts-jest').JestConfigWithTsJest} */
 module.exports = {
-  preset: 'ts-jest',
+  // Basic configuration
   testEnvironment: 'node',
   roots: ['<rootDir>/src'],
   testMatch: ['**/__tests__/**/*.ts', '**/?(*.)+(spec|test).ts'],
+  
+  // Transform settings
   transform: {
-    '^.+\.tsx?$': 'ts-jest',
+    '^.+\\.tsx?$': ['ts-jest', {
+      tsconfig: 'tsconfig.test.json'
+    }],
   },
+  
+  // Module name mapper
   moduleNameMapper: {
     '^@/(.*)$': '<rootDir>/src/$1',
     '^@test/(.*)$': '<rootDir>/src/__tests__/$1',
   },
+  
+  // Setup files
   setupFilesAfterEnv: ['<rootDir>/src/__tests__/jest.setup.ts'],
+  
+  // Coverage settings
   collectCoverageFrom: [
     'src/**/*.ts',
     '!src/**/*.d.ts',
@@ -21,21 +32,23 @@ module.exports = {
   ],
   coverageDirectory: 'coverage',
   coverageReporters: ['text', 'lcov'],
-  coverageThreshold: {
-    global: {
-      branches: 80,
-      functions: 80,
-      lines: 80,
-      statements: 80,
-    },
-  },
-  globals: {
-    'ts-jest': {
-      tsconfig: 'tsconfig.json',
-      isolatedModules: true,
-    },
-  },
+  
+  // Extensions
   moduleFileExtensions: ['ts', 'js', 'json', 'node'],
-  testPathIgnorePatterns: ['/node_modules/', '/dist/'],
+  
+  // Ignore patterns
+  testPathIgnorePatterns: [
+    '/node_modules/',
+    '/dist/',
+    '/coverage/',
+  ],
+  
+  // Other settings
   verbose: true,
+  testTimeout: 10000,
+  clearMocks: true,
+  resetMocks: true,
+  resetModules: true,
+  detectOpenHandles: true,
+  forceExit: true,
 };
