@@ -1,0 +1,1102 @@
+{
+  "systemInfo": {
+    "operatingSystem": "win32",
+    "windsurfVersion": "1.12.6",
+    "ideName": "windsurf",
+    "userName": "leon ferdian",
+    "userEmail": "leonardoferdiano@gmail.com",
+    "teamsTier": 9,
+    "timestamp": "2025-09-20T04:38:11.063Z",
+    "installationId": "e9c19b49-d036-4cf3-a0a0-2ad2ef34186e"
+  },
+  "userSettings": {
+    "openMostRecentChatConversation": false,
+    "lastSelectedModel": "MODEL_UNSPECIFIED",
+    "themePreference": "THEME_PREFERENCE_UNSPECIFIED",
+    "extensionPanelTab": "EXTENSION_PANEL_TAB_UNSPECIFIED",
+    "fontSize": "FONT_SIZE_UNSPECIFIED",
+    "autocompleteSpeed": "AUTOCOMPLETE_SPEED_UNSPECIFIED",
+    "rememberLastModelSelection": "REMEMBER_LAST_MODEL_SELECTION_UNSPECIFIED",
+    "lastSelectedModelName": "",
+    "lastSelectedCascadeModel": "MODEL_UNSPECIFIED",
+    "cascadeNuxStates": [],
+    "cascadeAllowedCommands": [],
+    "cascadeDeniedCommands": [],
+    "userNuxStates": [],
+    "cascadeWebSearchDisabled": false,
+    "disableAutocomplete": false,
+    "disableSupercomplete": false,
+    "disableSelectionPopup": false,
+    "disableExplainProblemInlayHint": false,
+    "disableInlayHintShortcuts": false,
+    "disableOpenCascadeOnReload": false,
+    "disableAutoOpenEditedFiles": false,
+    "disableTabToJump": false,
+    "cascadeAutoExecutionPolicy": "CASCADE_COMMANDS_AUTO_EXECUTION_AUTO",
+    "explainAndFixInCurrentConversation": false,
+    "allowCascadeAccessGitignoreFiles": false,
+    "disableCascadeAutoFixLints": false,
+    "disableCascadeBrowserPreviews": false,
+    "detectProxy": false,
+    "disableTabToImport": false,
+    "useClipboardForCompletions": false,
+    "disableHighlightAfterAccept": false,
+    "lastSelectedNewConvoTab": "",
+    "disableAutoGenerateMemories": false,
+    "enableSoundsForSpecialEvents": false,
+    "enableTabSounds": false,
+    "allowCascadeInBackground": false,
+    "tabToJump": "TAB_TO_JUMP_UNSPECIFIED",
+    "cascadeWebSearch": "CASCADE_WEB_SEARCH_TOOL_UNSPECIFIED",
+    "enableTerminalCompletion": false,
+    "featureUsageData": {
+      "CASCADE_REVERT_TO_STEP": {
+        "hasUsed": true
+      }
+    },
+    "disableCascadeInBackground": false,
+    "enableCommandCascadeMode": false,
+    "customWorkspace": [],
+    "conversationBrainConfigs": {},
+    "cachedCascadeModelConfigs": [
+      {
+        "label": "GPT-5 (low reasoning)",
+        "modelOrAlias": {
+          "model": "MODEL_PRIVATE_6"
+        },
+        "creditMultiplier": 0.5,
+        "disabled": false,
+        "supportsImages": true,
+        "supportsLegacy": false,
+        "isPremium": true,
+        "betaWarningMessage": "",
+        "isBeta": false,
+        "provider": "MODEL_PROVIDER_OPENAI",
+        "isRecommended": true,
+        "allowedTiers": [],
+        "pricingType": "MODEL_PRICING_TYPE_STATIC_CREDIT",
+        "apiProvider": "API_PROVIDER_UNSPECIFIED",
+        "isNew": true
+      },
+      {
+        "label": "Claude Sonnet 4",
+        "modelOrAlias": {
+          "model": "MODEL_CLAUDE_4_SONNET"
+        },
+        "creditMultiplier": 2,
+        "disabled": false,
+        "supportsImages": true,
+        "supportsLegacy": true,
+        "isPremium": true,
+        "betaWarningMessage": "",
+        "isBeta": false,
+        "provider": "MODEL_PROVIDER_ANTHROPIC",
+        "isRecommended": true,
+        "allowedTiers": [],
+        "pricingType": "MODEL_PRICING_TYPE_STATIC_CREDIT",
+        "apiProvider": "API_PROVIDER_UNSPECIFIED",
+        "isNew": false
+      },
+      {
+        "label": "GPT-4.1",
+        "modelOrAlias": {
+          "model": "MODEL_CHAT_GPT_4_1_2025_04_14"
+        },
+        "creditMultiplier": 1,
+        "disabled": false,
+        "supportsImages": true,
+        "supportsLegacy": true,
+        "isPremium": true,
+        "betaWarningMessage": "",
+        "isBeta": false,
+        "provider": "MODEL_PROVIDER_OPENAI",
+        "isRecommended": false,
+        "allowedTiers": [],
+        "pricingType": "MODEL_PRICING_TYPE_STATIC_CREDIT",
+        "apiProvider": "API_PROVIDER_UNSPECIFIED",
+        "isNew": false
+      },
+      {
+        "label": "SWE-1",
+        "modelOrAlias": {
+          "alias": "MODEL_ALIAS_SWE_1"
+        },
+        "creditMultiplier": 0,
+        "disabled": false,
+        "supportsImages": true,
+        "supportsLegacy": false,
+        "isPremium": false,
+        "betaWarningMessage": "",
+        "isBeta": false,
+        "provider": "MODEL_PROVIDER_WINDSURF",
+        "isRecommended": true,
+        "allowedTiers": [],
+        "pricingType": "MODEL_PRICING_TYPE_STATIC_CREDIT",
+        "apiProvider": "API_PROVIDER_UNSPECIFIED",
+        "isNew": false
+      },
+      {
+        "label": "Gemini 2.5 Pro",
+        "modelOrAlias": {
+          "model": "MODEL_GOOGLE_GEMINI_2_5_PRO"
+        },
+        "creditMultiplier": 1,
+        "disabled": false,
+        "supportsImages": true,
+        "supportsLegacy": false,
+        "isPremium": true,
+        "betaWarningMessage": "",
+        "isBeta": false,
+        "provider": "MODEL_PROVIDER_GOOGLE",
+        "isRecommended": true,
+        "allowedTiers": [],
+        "pricingType": "MODEL_PRICING_TYPE_STATIC_CREDIT",
+        "apiProvider": "API_PROVIDER_UNSPECIFIED",
+        "isNew": false
+      },
+      {
+        "label": "Claude 3.7 Sonnet",
+        "modelOrAlias": {
+          "model": "MODEL_CLAUDE_3_7_SONNET_20250219"
+        },
+        "creditMultiplier": 1,
+        "disabled": true,
+        "supportsImages": true,
+        "supportsLegacy": true,
+        "isPremium": true,
+        "betaWarningMessage": "",
+        "isBeta": false,
+        "provider": "MODEL_PROVIDER_ANTHROPIC",
+        "isRecommended": false,
+        "allowedTiers": [],
+        "pricingType": "MODEL_PRICING_TYPE_STATIC_CREDIT",
+        "apiProvider": "API_PROVIDER_UNSPECIFIED",
+        "isNew": false
+      },
+      {
+        "label": "Claude 3.7 Sonnet (BYOK)",
+        "modelOrAlias": {
+          "model": "MODEL_CLAUDE_3_7_SONNET_BYOK"
+        },
+        "creditMultiplier": 0,
+        "disabled": false,
+        "supportsImages": true,
+        "supportsLegacy": true,
+        "isPremium": true,
+        "betaWarningMessage": "Register your Anthropic API key in Windsurf settings.",
+        "isBeta": true,
+        "provider": "MODEL_PROVIDER_ANTHROPIC",
+        "isRecommended": false,
+        "allowedTiers": [],
+        "pricingType": "MODEL_PRICING_TYPE_BYOK",
+        "apiProvider": "API_PROVIDER_UNSPECIFIED",
+        "isNew": false
+      },
+      {
+        "label": "Claude 3.7 Sonnet (Thinking)",
+        "modelOrAlias": {
+          "model": "MODEL_CLAUDE_3_7_SONNET_20250219_THINKING"
+        },
+        "creditMultiplier": 1.25,
+        "disabled": true,
+        "supportsImages": true,
+        "supportsLegacy": true,
+        "isPremium": true,
+        "betaWarningMessage": "",
+        "isBeta": false,
+        "provider": "MODEL_PROVIDER_ANTHROPIC",
+        "isRecommended": false,
+        "allowedTiers": [],
+        "pricingType": "MODEL_PRICING_TYPE_STATIC_CREDIT",
+        "apiProvider": "API_PROVIDER_UNSPECIFIED",
+        "isNew": false
+      },
+      {
+        "label": "Claude 3.7 Sonnet (Thinking) (BYOK)",
+        "modelOrAlias": {
+          "model": "MODEL_CLAUDE_3_7_SONNET_THINKING_BYOK"
+        },
+        "creditMultiplier": 0,
+        "disabled": false,
+        "supportsImages": true,
+        "supportsLegacy": true,
+        "isPremium": true,
+        "betaWarningMessage": "Register your Anthropic API key in Windsurf settings.",
+        "isBeta": true,
+        "provider": "MODEL_PROVIDER_ANTHROPIC",
+        "isRecommended": false,
+        "allowedTiers": [],
+        "pricingType": "MODEL_PRICING_TYPE_BYOK",
+        "apiProvider": "API_PROVIDER_UNSPECIFIED",
+        "isNew": false
+      },
+      {
+        "label": "Claude 3.5 Sonnet",
+        "modelOrAlias": {
+          "model": "MODEL_CLAUDE_3_5_SONNET_20241022"
+        },
+        "creditMultiplier": 1,
+        "disabled": true,
+        "supportsImages": true,
+        "supportsLegacy": true,
+        "isPremium": true,
+        "betaWarningMessage": "",
+        "isBeta": false,
+        "provider": "MODEL_PROVIDER_ANTHROPIC",
+        "isRecommended": false,
+        "allowedTiers": [],
+        "pricingType": "MODEL_PRICING_TYPE_STATIC_CREDIT",
+        "apiProvider": "API_PROVIDER_UNSPECIFIED",
+        "isNew": false
+      },
+      {
+        "label": "Claude 3.5 Sonnet (BYOK)",
+        "modelOrAlias": {
+          "model": "MODEL_CLAUDE_3_5_SONNET_BYOK"
+        },
+        "creditMultiplier": 0,
+        "disabled": false,
+        "supportsImages": true,
+        "supportsLegacy": true,
+        "isPremium": true,
+        "betaWarningMessage": "Register your Anthropic API key in Windsurf settings.",
+        "isBeta": true,
+        "provider": "MODEL_PROVIDER_ANTHROPIC",
+        "isRecommended": false,
+        "allowedTiers": [],
+        "pricingType": "MODEL_PRICING_TYPE_BYOK",
+        "apiProvider": "API_PROVIDER_UNSPECIFIED",
+        "isNew": false
+      },
+      {
+        "label": "Claude Sonnet 4 (BYOK)",
+        "modelOrAlias": {
+          "model": "MODEL_CLAUDE_4_SONNET_BYOK"
+        },
+        "creditMultiplier": 0,
+        "disabled": false,
+        "supportsImages": true,
+        "supportsLegacy": true,
+        "isPremium": true,
+        "betaWarningMessage": "",
+        "isBeta": false,
+        "provider": "MODEL_PROVIDER_ANTHROPIC",
+        "isRecommended": false,
+        "allowedTiers": [],
+        "pricingType": "MODEL_PRICING_TYPE_BYOK",
+        "apiProvider": "API_PROVIDER_UNSPECIFIED",
+        "isNew": false
+      },
+      {
+        "label": "Claude Sonnet 4 (Thinking, BYOK)",
+        "modelOrAlias": {
+          "model": "MODEL_CLAUDE_4_SONNET_THINKING_BYOK"
+        },
+        "creditMultiplier": 0,
+        "disabled": false,
+        "supportsImages": true,
+        "supportsLegacy": true,
+        "isPremium": true,
+        "betaWarningMessage": "",
+        "isBeta": false,
+        "provider": "MODEL_PROVIDER_ANTHROPIC",
+        "isRecommended": false,
+        "allowedTiers": [],
+        "pricingType": "MODEL_PRICING_TYPE_BYOK",
+        "apiProvider": "API_PROVIDER_UNSPECIFIED",
+        "isNew": false
+      },
+      {
+        "label": "Claude Sonnet 4 (Thinking)",
+        "modelOrAlias": {
+          "model": "MODEL_CLAUDE_4_SONNET_THINKING"
+        },
+        "creditMultiplier": 2,
+        "disabled": false,
+        "supportsImages": true,
+        "supportsLegacy": true,
+        "isPremium": true,
+        "betaWarningMessage": "",
+        "isBeta": false,
+        "provider": "MODEL_PROVIDER_ANTHROPIC",
+        "isRecommended": false,
+        "allowedTiers": [],
+        "pricingType": "MODEL_PRICING_TYPE_STATIC_CREDIT",
+        "apiProvider": "API_PROVIDER_UNSPECIFIED",
+        "isNew": false
+      },
+      {
+        "label": "Claude Opus 4.1",
+        "modelOrAlias": {
+          "model": "MODEL_CLAUDE_4_1_OPUS"
+        },
+        "creditMultiplier": 20,
+        "disabled": false,
+        "supportsImages": true,
+        "supportsLegacy": false,
+        "isPremium": true,
+        "betaWarningMessage": "",
+        "isBeta": false,
+        "provider": "MODEL_PROVIDER_ANTHROPIC",
+        "isRecommended": false,
+        "allowedTiers": [],
+        "pricingType": "MODEL_PRICING_TYPE_STATIC_CREDIT",
+        "apiProvider": "API_PROVIDER_UNSPECIFIED",
+        "isNew": false
+      },
+      {
+        "label": "Claude Opus 4.1 (Thinking)",
+        "modelOrAlias": {
+          "model": "MODEL_CLAUDE_4_1_OPUS_THINKING"
+        },
+        "creditMultiplier": 20,
+        "disabled": false,
+        "supportsImages": true,
+        "supportsLegacy": false,
+        "isPremium": true,
+        "betaWarningMessage": "",
+        "isBeta": false,
+        "provider": "MODEL_PROVIDER_ANTHROPIC",
+        "isRecommended": false,
+        "allowedTiers": [],
+        "pricingType": "MODEL_PRICING_TYPE_STATIC_CREDIT",
+        "apiProvider": "API_PROVIDER_UNSPECIFIED",
+        "isNew": false
+      },
+      {
+        "label": "Claude Opus 4 (BYOK)",
+        "modelOrAlias": {
+          "model": "MODEL_CLAUDE_4_OPUS_BYOK"
+        },
+        "creditMultiplier": 0,
+        "disabled": false,
+        "supportsImages": true,
+        "supportsLegacy": true,
+        "isPremium": true,
+        "betaWarningMessage": "Register your Anthropic API key in Windsurf settings.",
+        "isBeta": true,
+        "provider": "MODEL_PROVIDER_ANTHROPIC",
+        "isRecommended": false,
+        "allowedTiers": [],
+        "pricingType": "MODEL_PRICING_TYPE_BYOK",
+        "apiProvider": "API_PROVIDER_UNSPECIFIED",
+        "isNew": false
+      },
+      {
+        "label": "Claude Opus 4 (Thinking, BYOK)",
+        "modelOrAlias": {
+          "model": "MODEL_CLAUDE_4_OPUS_THINKING_BYOK"
+        },
+        "creditMultiplier": 0,
+        "disabled": false,
+        "supportsImages": true,
+        "supportsLegacy": true,
+        "isPremium": true,
+        "betaWarningMessage": "Register your Anthropic API key in Windsurf settings.",
+        "isBeta": true,
+        "provider": "MODEL_PROVIDER_ANTHROPIC",
+        "isRecommended": false,
+        "allowedTiers": [],
+        "pricingType": "MODEL_PRICING_TYPE_BYOK",
+        "apiProvider": "API_PROVIDER_UNSPECIFIED",
+        "isNew": false
+      },
+      {
+        "label": "o3",
+        "modelOrAlias": {
+          "model": "MODEL_CHAT_O3"
+        },
+        "creditMultiplier": 1,
+        "disabled": false,
+        "supportsImages": true,
+        "supportsLegacy": false,
+        "isPremium": true,
+        "betaWarningMessage": "",
+        "isBeta": false,
+        "provider": "MODEL_PROVIDER_OPENAI",
+        "isRecommended": false,
+        "allowedTiers": [],
+        "pricingType": "MODEL_PRICING_TYPE_STATIC_CREDIT",
+        "apiProvider": "API_PROVIDER_UNSPECIFIED",
+        "isNew": false
+      },
+      {
+        "label": "o3 (high reasoning)",
+        "modelOrAlias": {
+          "model": "MODEL_CHAT_O3_HIGH"
+        },
+        "creditMultiplier": 1,
+        "disabled": false,
+        "supportsImages": true,
+        "supportsLegacy": false,
+        "isPremium": true,
+        "betaWarningMessage": "",
+        "isBeta": false,
+        "provider": "MODEL_PROVIDER_OPENAI",
+        "isRecommended": false,
+        "allowedTiers": [],
+        "pricingType": "MODEL_PRICING_TYPE_STATIC_CREDIT",
+        "apiProvider": "API_PROVIDER_UNSPECIFIED",
+        "isNew": false
+      },
+      {
+        "label": "code-supernova",
+        "modelOrAlias": {
+          "model": "MODEL_PRIVATE_1"
+        },
+        "creditMultiplier": 0,
+        "disabled": false,
+        "supportsImages": true,
+        "supportsLegacy": false,
+        "isPremium": true,
+        "betaWarningMessage": "",
+        "isBeta": false,
+        "provider": "MODEL_PROVIDER_UNSPECIFIED",
+        "isRecommended": true,
+        "allowedTiers": [],
+        "pricingType": "MODEL_PRICING_TYPE_STATIC_CREDIT",
+        "apiProvider": "API_PROVIDER_UNSPECIFIED",
+        "isNew": true
+      },
+      {
+        "label": "Grok Code Fast 1",
+        "modelOrAlias": {
+          "model": "MODEL_PRIVATE_4"
+        },
+        "creditMultiplier": 0,
+        "disabled": false,
+        "supportsImages": false,
+        "supportsLegacy": false,
+        "isPremium": true,
+        "betaWarningMessage": "",
+        "isBeta": false,
+        "provider": "MODEL_PROVIDER_XAI",
+        "isRecommended": false,
+        "allowedTiers": [],
+        "pricingType": "MODEL_PRICING_TYPE_STATIC_CREDIT",
+        "apiProvider": "API_PROVIDER_UNSPECIFIED",
+        "isNew": true
+      },
+      {
+        "label": "GPT-5 (medium reasoning)",
+        "modelOrAlias": {
+          "model": "MODEL_PRIVATE_7"
+        },
+        "creditMultiplier": 1,
+        "disabled": false,
+        "supportsImages": true,
+        "supportsLegacy": false,
+        "isPremium": true,
+        "betaWarningMessage": "",
+        "isBeta": false,
+        "provider": "MODEL_PROVIDER_OPENAI",
+        "isRecommended": false,
+        "allowedTiers": [],
+        "pricingType": "MODEL_PRICING_TYPE_STATIC_CREDIT",
+        "apiProvider": "API_PROVIDER_UNSPECIFIED",
+        "isNew": true
+      },
+      {
+        "label": "GPT-5 (high reasoning)",
+        "modelOrAlias": {
+          "model": "MODEL_PRIVATE_8"
+        },
+        "creditMultiplier": 2,
+        "disabled": false,
+        "supportsImages": true,
+        "supportsLegacy": false,
+        "isPremium": true,
+        "betaWarningMessage": "",
+        "isBeta": false,
+        "provider": "MODEL_PROVIDER_OPENAI",
+        "isRecommended": false,
+        "allowedTiers": [],
+        "pricingType": "MODEL_PRICING_TYPE_STATIC_CREDIT",
+        "apiProvider": "API_PROVIDER_UNSPECIFIED",
+        "isNew": true
+      },
+      {
+        "label": "GPT-4o",
+        "modelOrAlias": {
+          "model": "MODEL_CHAT_GPT_4O_2024_08_06"
+        },
+        "creditMultiplier": 1,
+        "disabled": false,
+        "supportsImages": true,
+        "supportsLegacy": true,
+        "isPremium": true,
+        "betaWarningMessage": "",
+        "isBeta": false,
+        "provider": "MODEL_PROVIDER_OPENAI",
+        "isRecommended": false,
+        "allowedTiers": [],
+        "pricingType": "MODEL_PRICING_TYPE_STATIC_CREDIT",
+        "apiProvider": "API_PROVIDER_UNSPECIFIED",
+        "isNew": false
+      },
+      {
+        "label": "DeepSeek V3 (0324)",
+        "modelOrAlias": {
+          "model": "MODEL_DEEPSEEK_V3"
+        },
+        "creditMultiplier": 0,
+        "disabled": false,
+        "supportsImages": false,
+        "supportsLegacy": false,
+        "isPremium": true,
+        "betaWarningMessage": "",
+        "isBeta": false,
+        "provider": "MODEL_PROVIDER_DEEPSEEK",
+        "isRecommended": false,
+        "allowedTiers": [],
+        "pricingType": "MODEL_PRICING_TYPE_STATIC_CREDIT",
+        "apiProvider": "API_PROVIDER_UNSPECIFIED",
+        "isNew": false
+      },
+      {
+        "label": "Kimi K2",
+        "modelOrAlias": {
+          "model": "MODEL_KIMI_K2"
+        },
+        "creditMultiplier": 0.5,
+        "disabled": false,
+        "supportsImages": false,
+        "supportsLegacy": false,
+        "isPremium": true,
+        "betaWarningMessage": "",
+        "isBeta": false,
+        "provider": "MODEL_PROVIDER_MOONSHOT",
+        "isRecommended": false,
+        "allowedTiers": [],
+        "pricingType": "MODEL_PRICING_TYPE_STATIC_CREDIT",
+        "apiProvider": "API_PROVIDER_UNSPECIFIED",
+        "isNew": false
+      },
+      {
+        "label": "Qwen3-Coder Fast (promo)",
+        "modelOrAlias": {
+          "model": "MODEL_QWEN_3_CODER_480B_INSTRUCT_FAST"
+        },
+        "creditMultiplier": 2,
+        "disabled": false,
+        "supportsImages": false,
+        "supportsLegacy": false,
+        "isPremium": true,
+        "betaWarningMessage": "",
+        "isBeta": false,
+        "provider": "MODEL_PROVIDER_QWEN",
+        "isRecommended": false,
+        "allowedTiers": [],
+        "pricingType": "MODEL_PRICING_TYPE_STATIC_CREDIT",
+        "apiProvider": "API_PROVIDER_UNSPECIFIED",
+        "isNew": false
+      },
+      {
+        "label": "Qwen3-Coder",
+        "modelOrAlias": {
+          "model": "MODEL_QWEN_3_CODER_480B_INSTRUCT"
+        },
+        "creditMultiplier": 0.5,
+        "disabled": false,
+        "supportsImages": false,
+        "supportsLegacy": false,
+        "isPremium": true,
+        "betaWarningMessage": "",
+        "isBeta": false,
+        "provider": "MODEL_PROVIDER_QWEN",
+        "isRecommended": false,
+        "allowedTiers": [],
+        "pricingType": "MODEL_PRICING_TYPE_STATIC_CREDIT",
+        "apiProvider": "API_PROVIDER_UNSPECIFIED",
+        "isNew": false
+      },
+      {
+        "label": "GPT-OSS 120B (Medium)",
+        "modelOrAlias": {
+          "model": "MODEL_GPT_OSS_120B"
+        },
+        "creditMultiplier": 0.25,
+        "disabled": false,
+        "supportsImages": false,
+        "supportsLegacy": false,
+        "isPremium": true,
+        "betaWarningMessage": "",
+        "isBeta": false,
+        "provider": "MODEL_PROVIDER_OPENAI",
+        "isRecommended": false,
+        "allowedTiers": [],
+        "pricingType": "MODEL_PRICING_TYPE_STATIC_CREDIT",
+        "apiProvider": "API_PROVIDER_UNSPECIFIED",
+        "isNew": false
+      },
+      {
+        "label": "DeepSeek R1 (0528)",
+        "modelOrAlias": {
+          "model": "MODEL_DEEPSEEK_R1"
+        },
+        "creditMultiplier": 0,
+        "disabled": false,
+        "supportsImages": false,
+        "supportsLegacy": false,
+        "isPremium": true,
+        "betaWarningMessage": "",
+        "isBeta": false,
+        "provider": "MODEL_PROVIDER_DEEPSEEK",
+        "isRecommended": false,
+        "allowedTiers": [],
+        "pricingType": "MODEL_PRICING_TYPE_STATIC_CREDIT",
+        "apiProvider": "API_PROVIDER_UNSPECIFIED",
+        "isNew": false
+      },
+      {
+        "label": "xAI Grok-3",
+        "modelOrAlias": {
+          "model": "MODEL_XAI_GROK_3"
+        },
+        "creditMultiplier": 1,
+        "disabled": false,
+        "supportsImages": false,
+        "supportsLegacy": true,
+        "isPremium": true,
+        "betaWarningMessage": "",
+        "isBeta": false,
+        "provider": "MODEL_PROVIDER_XAI",
+        "isRecommended": false,
+        "allowedTiers": [],
+        "pricingType": "MODEL_PRICING_TYPE_STATIC_CREDIT",
+        "apiProvider": "API_PROVIDER_UNSPECIFIED",
+        "isNew": false
+      },
+      {
+        "label": "xAI Grok-3 mini (Thinking)",
+        "modelOrAlias": {
+          "model": "MODEL_XAI_GROK_3_MINI_REASONING"
+        },
+        "creditMultiplier": 0.125,
+        "disabled": false,
+        "supportsImages": false,
+        "supportsLegacy": true,
+        "isPremium": true,
+        "betaWarningMessage": "",
+        "isBeta": false,
+        "provider": "MODEL_PROVIDER_XAI",
+        "isRecommended": false,
+        "allowedTiers": [],
+        "pricingType": "MODEL_PRICING_TYPE_STATIC_CREDIT",
+        "apiProvider": "API_PROVIDER_UNSPECIFIED",
+        "isNew": false
+      }
+    ],
+    "cachedCascadeModelSorts": [
+      {
+        "name": "Recommended",
+        "groups": [
+          {
+            "groupName": "",
+            "modelLabels": [
+              "GPT-5 (low reasoning)",
+              "Claude Sonnet 4",
+              "SWE-1",
+              "Gemini 2.5 Pro",
+              "code-supernova"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Provider",
+        "groups": [
+          {
+            "groupName": "Windsurf",
+            "modelLabels": [
+              "SWE-1"
+            ]
+          },
+          {
+            "groupName": "OpenAI",
+            "modelLabels": [
+              "GPT-5 (low reasoning)",
+              "GPT-4.1",
+              "o3",
+              "o3 (high reasoning)",
+              "GPT-5 (medium reasoning)",
+              "GPT-5 (high reasoning)",
+              "GPT-4o",
+              "GPT-OSS 120B (Medium)"
+            ]
+          },
+          {
+            "groupName": "Anthropic",
+            "modelLabels": [
+              "Claude Sonnet 4",
+              "Claude 3.7 Sonnet",
+              "Claude 3.7 Sonnet (BYOK)",
+              "Claude 3.7 Sonnet (Thinking)",
+              "Claude 3.7 Sonnet (Thinking) (BYOK)",
+              "Claude 3.5 Sonnet",
+              "Claude 3.5 Sonnet (BYOK)",
+              "Claude Sonnet 4 (BYOK)",
+              "Claude Sonnet 4 (Thinking, BYOK)",
+              "Claude Sonnet 4 (Thinking)",
+              "Claude Opus 4.1",
+              "Claude Opus 4.1 (Thinking)",
+              "Claude Opus 4 (BYOK)",
+              "Claude Opus 4 (Thinking, BYOK)"
+            ]
+          },
+          {
+            "groupName": "Google",
+            "modelLabels": [
+              "Gemini 2.5 Pro"
+            ]
+          },
+          {
+            "groupName": "xAI",
+            "modelLabels": [
+              "Grok Code Fast 1",
+              "xAI Grok-3",
+              "xAI Grok-3 mini (Thinking)"
+            ]
+          },
+          {
+            "groupName": "DeepSeek",
+            "modelLabels": [
+              "DeepSeek V3 (0324)",
+              "DeepSeek R1 (0528)"
+            ]
+          },
+          {
+            "groupName": "Other",
+            "modelLabels": [
+              "code-supernova",
+              "Kimi K2",
+              "Qwen3-Coder Fast (promo)",
+              "Qwen3-Coder"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Cost",
+        "groups": [
+          {
+            "groupName": "Premium",
+            "modelLabels": [
+              "Claude Sonnet 4",
+              "GPT-4.1",
+              "Gemini 2.5 Pro",
+              "Claude 3.7 Sonnet",
+              "Claude 3.7 Sonnet (Thinking)",
+              "Claude 3.5 Sonnet",
+              "Claude Sonnet 4 (Thinking)",
+              "Claude Opus 4.1",
+              "Claude Opus 4.1 (Thinking)",
+              "o3",
+              "o3 (high reasoning)",
+              "GPT-5 (medium reasoning)",
+              "GPT-5 (high reasoning)",
+              "GPT-4o",
+              "Qwen3-Coder Fast (promo)",
+              "xAI Grok-3"
+            ]
+          },
+          {
+            "groupName": "Value",
+            "modelLabels": [
+              "GPT-5 (low reasoning)",
+              "Kimi K2",
+              "Qwen3-Coder",
+              "GPT-OSS 120B (Medium)",
+              "xAI Grok-3 mini (Thinking)"
+            ]
+          },
+          {
+            "groupName": "BYOK",
+            "modelLabels": [
+              "Claude 3.7 Sonnet (BYOK)",
+              "Claude 3.7 Sonnet (Thinking) (BYOK)",
+              "Claude 3.5 Sonnet (BYOK)",
+              "Claude Sonnet 4 (BYOK)",
+              "Claude Sonnet 4 (Thinking, BYOK)",
+              "Claude Opus 4 (BYOK)",
+              "Claude Opus 4 (Thinking, BYOK)"
+            ]
+          },
+          {
+            "groupName": "Free",
+            "modelLabels": [
+              "SWE-1",
+              "code-supernova",
+              "Grok Code Fast 1",
+              "DeepSeek V3 (0324)",
+              "DeepSeek R1 (0528)"
+            ]
+          }
+        ]
+      }
+    ],
+    "globalPlanModePreference": "PLAN_MODE_UNSPECIFIED",
+    "isSnoozed": false,
+    "cascadeRunExtensionCode": "CASCADE_RUN_EXTENSION_CODE_UNSPECIFIED",
+    "cascadeRunExtensionCodeAutoRun": "CASCADE_RUN_EXTENSION_CODE_AUTO_RUN_UNSPECIFIED",
+    "lastModelDefaultOverrideVersionId": "claude-4-sonnet",
+    "autoContinueOnMaxGeneratorInvocations": "AUTO_CONTINUE_ON_MAX_GENERATOR_INVOCATIONS_ENABLED",
+    "seenNuxUids": {},
+    "recentlyUsedCascadeModels": [
+      "0",
+      "281",
+      "279"
+    ],
+    "cascadeDismissedSuggestionWorkspaces": [],
+    "annotationsConfig": "ANNOTATIONS_CONFIG_UNSPECIFIED",
+    "enableAutomaticScreenshot": false,
+    "cascadeInputAutocomplete": "CASCADE_INPUT_AUTOCOMPLETE_UNSPECIFIED",
+    "browserExperimentalFeaturesConfig": "BROWSER_EXPERIMENTAL_FEATURES_CONFIG_UNSPECIFIED",
+    "commandPopupAutocomplete": "COMMAND_POPUP_AUTOCOMPLETE_UNSPECIFIED",
+    "claudeCodeCliPath": "",
+    "claudeCodeSystemPrompt": "",
+    "claudeCodeMaxTurns": 0,
+    "claudeCodeMcpConfig": "",
+    "claudeCodeDirectories": [],
+    "claudeCodeSystemPromptAppend": "",
+    "claudeCodeModel": ""
+  },
+  "extensionLogs": [
+    "2025-09-20 09:34:03.476 [info] 2025/09/20 09:34:03 maxprocs: Leaving GOMAXPROCS=4: CPU quota undefined",
+    "2025-09-20 09:34:11.980 [info] I0920 09:34:11.979707 15624 main.go:624] Setting GOMAXPROCS to 4",
+    "2025-09-20 09:34:11.999 [info] I0920 09:34:11.999244 15624 main.go:836] Starting language server process with pid 15624",
+    "2025-09-20 09:34:12.064 [info] I0920 09:34:12.063677 15624 server.go:342] Language server will attempt to listen on host 127.0.0.1",
+    "2025-09-20 09:34:12.087 [info] I0920 09:34:12.086849 15624 server.go:349] Language server listening on random port at 59825",
+    "2025-09-20 09:34:13.250 [info] I0920 09:34:13.248936 15624 server.go:482] Created extension server client at port 51612",
+    "2025-09-20 09:34:15.607 [info] (Windsurf) 2025-09-20 09:34:15.601 [INFO]: Language server started",
+    "2025-09-20 09:34:20.940 [info] (Windsurf) 2025-09-20 09:34:20.938 [INFO]: LS lspClient started successfully",
+    "2025-09-20 09:43:19.784 [info] (Windsurf) 2025-09-20 09:43:19.782 [INFO]: [Terminal] Command started: cd 'c:\\flutter\\FundingMachine\\backend' pid 21316",
+    "2025-09-20 09:43:19.866 [info] (Windsurf) 2025-09-20 09:43:19.865 [INFO]: [Terminal] Command completed: cd 'c:\\flutter\\FundingMachine\\backend' exit code 0",
+    "2025-09-20 09:43:21.617 [info] (Windsurf) 2025-09-20 09:43:21.615 [INFO]: [Terminal] Command started: npx jest src/__tests__/services/user.service.final.test.ts --verbose pid 21316",
+    "2025-09-20 09:43:58.573 [info] (Windsurf) 2025-09-20 09:43:58.571 [INFO]: [Terminal] Command completed: npx jest src/__tests__/services/user.service.final.test.ts --verbose exit code 1",
+    "2025-09-20 10:15:35.071 [info] (Windsurf) 2025-09-20 10:15:35.069 [INFO]: [Terminal] Command started: cd 'c:\\flutter\\FundingMachine\\backend' pid 21316",
+    "2025-09-20 10:15:35.106 [info] (Windsurf) 2025-09-20 10:15:35.105 [INFO]: [Terminal] Command completed: cd 'c:\\flutter\\FundingMachine\\backend' exit code 0",
+    "2025-09-20 10:15:36.502 [info] (Windsurf) 2025-09-20 10:15:36.501 [INFO]: [Terminal] Command started: npm install --save-dev @types/jest pid 21316",
+    "2025-09-20 10:16:07.483 [info] (Windsurf) 2025-09-20 10:16:07.481 [INFO]: [Terminal] Command completed: npm install --save-dev @types/jest exit code 0",
+    "2025-09-20 10:16:09.411 [info] E0920 10:16:09.409734 15624 interceptor.go:73] /exa.language_server_pb.LanguageServerService/AcknowledgeCascadeCodeEdit (unknown): no unacknowledged steps for file file:///c:/flutter/FundingMachine/backend/src/__tests__/services/user.service.final.test.ts",
+    "2025-09-20 10:18:24.772 [info] (Windsurf) 2025-09-20 10:18:24.771 [INFO]: [Terminal] Command started: cd 'c:\\flutter\\FundingMachine\\backend' pid 21316",
+    "2025-09-20 10:18:24.801 [info] (Windsurf) 2025-09-20 10:18:24.799 [INFO]: [Terminal] Command completed: cd 'c:\\flutter\\FundingMachine\\backend' exit code 0",
+    "2025-09-20 10:18:26.003 [info] (Windsurf) 2025-09-20 10:18:26.002 [INFO]: [Terminal] Command started: npx jest src/__tests__/services/user.service.final.test.ts --verbose pid 21316",
+    "2025-09-20 10:18:37.841 [info] (Windsurf) 2025-09-20 10:18:37.840 [INFO]: [Terminal] Command completed: npx jest src/__tests__/services/user.service.final.test.ts --verbose exit code 1",
+    "2025-09-20 10:21:19.982 [info] (Windsurf) 2025-09-20 10:21:19.981 [INFO]: [Terminal] Command started: cd 'c:\\flutter\\FundingMachine\\backend' pid 21316",
+    "2025-09-20 10:21:20.014 [info] (Windsurf) 2025-09-20 10:21:20.012 [INFO]: [Terminal] Command completed: cd 'c:\\flutter\\FundingMachine\\backend' exit code 0",
+    "2025-09-20 10:21:21.502 [info] (Windsurf) 2025-09-20 10:21:21.501 [INFO]: [Terminal] Command started: npx jest src/__tests__/services/user.service.core.test.ts --verbose pid 21316",
+    "2025-09-20 10:21:36.099 [info] (Windsurf) 2025-09-20 10:21:36.097 [INFO]: [Terminal] Command completed: npx jest src/__tests__/services/user.service.core.test.ts --verbose exit code 1",
+    "2025-09-20 10:26:00.961 [info] (Windsurf) 2025-09-20 10:26:00.960 [INFO]: [Terminal] Command started: cd 'c:\\flutter\\FundingMachine\\backend' pid 21316",
+    "2025-09-20 10:26:00.994 [info] (Windsurf) 2025-09-20 10:26:00.992 [INFO]: [Terminal] Command completed: cd 'c:\\flutter\\FundingMachine\\backend' exit code 0",
+    "2025-09-20 10:26:04.011 [info] (Windsurf) 2025-09-20 10:26:04.009 [INFO]: [Terminal] Command force exited: cd 'c:\\flutter\\FundingMachine\\backend', with exit code 0",
+    "2025-09-20 10:26:09.766 [info] (Windsurf) 2025-09-20 10:26:09.765 [INFO]: [Terminal] Command started: cd 'c:\\flutter\\FundingMachine\\backend' pid 21316",
+    "2025-09-20 10:26:09.769 [info] (Windsurf) 2025-09-20 10:26:09.768 [INFO]: [Terminal] Command completed: cd 'c:\\flutter\\FundingMachine\\backend' exit code 0",
+    "2025-09-20 10:26:12.778 [info] (Windsurf) 2025-09-20 10:26:12.775 [INFO]: [Terminal] Command force exited: cd 'c:\\flutter\\FundingMachine\\backend', with exit code 0",
+    "2025-09-20 10:26:25.609 [info] (Windsurf) 2025-09-20 10:26:25.609 [INFO]: [Terminal] Command started: npx jest src/__tests__/services/user.service.core.test.ts --verbose pid 21316",
+    "2025-09-20 10:26:27.350 [info] (Windsurf) 2025-09-20 10:26:27.349 [INFO]: [Terminal] Command completed: npx jest src/__tests__/services/user.service.core.test.ts --verbose exit code 1",
+    "2025-09-20 10:29:35.775 [info] (Windsurf) 2025-09-20 10:29:35.774 [INFO]: [Terminal] Command started: cd 'c:\\flutter\\FundingMachine\\backend' pid 21316",
+    "2025-09-20 10:30:35.803 [info] (Windsurf) 2025-09-20 10:30:35.802 [INFO]: [Terminal] Command completed: cd 'c:\\flutter\\FundingMachine\\backend' exit code 0",
+    "2025-09-20 10:30:38.805 [info] (Windsurf) 2025-09-20 10:30:38.804 [INFO]: [Terminal] Command force exited: cd 'c:\\flutter\\FundingMachine\\backend', with exit code 0",
+    "2025-09-20 10:34:35.841 [info] (Windsurf) 2025-09-20 10:34:35.840 [INFO]: [Terminal] Command started: move /Y src\\services\\user.service.new.ts src\\services\\user.service.ts pid 21316",
+    "2025-09-20 10:35:35.806 [info] (Windsurf) 2025-09-20 10:35:35.804 [INFO]: [Terminal] Command completed: move /Y src\\services\\user.service.new.ts src\\services\\user.service.ts exit code 1",
+    "2025-09-20 10:36:35.822 [info] (Windsurf) 2025-09-20 10:36:35.821 [INFO]: [Terminal] Command started: npm test pid 21316",
+    "2025-09-20 10:38:33.079 [info] (Windsurf) 2025-09-20 10:38:33.078 [INFO]: [Terminal] Command completed: npm test exit code 1",
+    "2025-09-20 10:40:42.972 [info] (Windsurf) 2025-09-20 10:40:42.971 [INFO]: [Terminal] Command started: cd 'c:\\flutter\\FundingMachine\\backend' pid 21316",
+    "2025-09-20 10:40:42.974 [info] (Windsurf) 2025-09-20 10:40:42.973 [INFO]: [Terminal] Command completed: cd 'c:\\flutter\\FundingMachine\\backend' exit code 0",
+    "2025-09-20 10:40:45.979 [info] (Windsurf) 2025-09-20 10:40:45.977 [INFO]: [Terminal] Command force exited: cd 'c:\\flutter\\FundingMachine\\backend', with exit code 0",
+    "2025-09-20 10:42:27.080 [info] (Windsurf) 2025-09-20 10:42:27.078 [INFO]: [Terminal] Command started: npm test pid 21316",
+    "2025-09-20 10:42:56.983 [info] (Windsurf) 2025-09-20 10:42:56.981 [INFO]: [Terminal] Command completed: npm test exit code 1",
+    "2025-09-20 10:52:29.645 [info] (Windsurf) 2025-09-20 10:52:29.644 [INFO]: [Terminal] Command started: cd 'c:\\flutter\\FundingMachine\\backend' pid 21316",
+    "2025-09-20 10:52:29.680 [info] (Windsurf) 2025-09-20 10:52:29.679 [INFO]: [Terminal] Command completed: cd 'c:\\flutter\\FundingMachine\\backend' exit code 0",
+    "2025-09-20 10:52:30.728 [info] (Windsurf) 2025-09-20 10:52:30.727 [INFO]: [Terminal] Command started: npx jest --verbose pid 21316",
+    "2025-09-20 10:53:02.968 [info] (Windsurf) 2025-09-20 10:53:02.967 [INFO]: [Terminal] Command completed: npx jest --verbose exit code 1",
+    "2025-09-20 10:53:17.393 [info] (Windsurf) 2025-09-20 10:53:17.393 [INFO]: [Terminal] Command started: cd 'c:\\flutter\\FundingMachine\\backend' pid 21316",
+    "2025-09-20 10:53:17.427 [info] (Windsurf) 2025-09-20 10:53:17.427 [INFO]: [Terminal] Command completed: cd 'c:\\flutter\\FundingMachine\\backend' exit code 0",
+    "2025-09-20 10:53:18.713 [info] (Windsurf) 2025-09-20 10:53:18.712 [INFO]: [Terminal] Command started: npx jest src/__tests__/services/user.service.refactored.test.ts --verbose pid 21316",
+    "2025-09-20 10:53:29.258 [info] (Windsurf) 2025-09-20 10:53:29.258 [INFO]: [Terminal] Command completed: npx jest src/__tests__/services/user.service.refactored.test.ts --verbose exit code 1",
+    "2025-09-20 10:55:47.715 [info] (Windsurf) 2025-09-20 10:55:47.715 [INFO]: [Terminal] Command started: cd 'c:\\flutter\\FundingMachine\\backend' pid 21316",
+    "2025-09-20 10:55:47.740 [info] (Windsurf) 2025-09-20 10:55:47.739 [INFO]: [Terminal] Command completed: cd 'c:\\flutter\\FundingMachine\\backend' exit code 0",
+    "2025-09-20 10:55:48.896 [info] (Windsurf) 2025-09-20 10:55:48.895 [INFO]: [Terminal] Command started: npm install --save-dev @types/jest @types/node ts-jest pid 21316",
+    "2025-09-20 10:56:00.783 [info] (Windsurf) 2025-09-20 10:56:00.781 [INFO]: [Terminal] Command completed: npm install --save-dev @types/jest @types/node ts-jest exit code 0",
+    "2025-09-20 10:56:35.260 [info] (Windsurf) 2025-09-20 10:56:35.259 [INFO]: [Terminal] Command started: cd 'c:\\flutter\\FundingMachine\\backend' pid 21316",
+    "2025-09-20 10:56:35.281 [info] (Windsurf) 2025-09-20 10:56:35.280 [INFO]: [Terminal] Command completed: cd 'c:\\flutter\\FundingMachine\\backend' exit code 0",
+    "2025-09-20 10:56:36.462 [info] (Windsurf) 2025-09-20 10:56:36.461 [INFO]: [Terminal] Command started: npx jest --listTests pid 21316",
+    "2025-09-20 10:56:39.812 [info] (Windsurf) 2025-09-20 10:56:39.812 [INFO]: [Terminal] Command completed: npx jest --listTests exit code 0",
+    "2025-09-20 10:56:44.351 [info] (Windsurf) 2025-09-20 10:56:44.351 [INFO]: [Terminal] Command started: cd 'c:\\flutter\\FundingMachine\\backend' pid 21316",
+    "2025-09-20 10:56:44.381 [info] (Windsurf) 2025-09-20 10:56:44.380 [INFO]: [Terminal] Command completed: cd 'c:\\flutter\\FundingMachine\\backend' exit code 0",
+    "2025-09-20 10:56:45.490 [info] (Windsurf) 2025-09-20 10:56:45.489 [INFO]: [Terminal] Command started: npx jest --verbose pid 21316",
+    "2025-09-20 10:57:24.560 [info] (Windsurf) 2025-09-20 10:57:24.559 [INFO]: [Terminal] Command completed: npx jest --verbose exit code 1",
+    "2025-09-20 10:57:49.786 [info] (Windsurf) 2025-09-20 10:57:49.785 [INFO]: [Terminal] Command started: cd 'c:\\flutter\\FundingMachine\\backend' pid 21316",
+    "2025-09-20 10:57:49.808 [info] (Windsurf) 2025-09-20 10:57:49.807 [INFO]: [Terminal] Command completed: cd 'c:\\flutter\\FundingMachine\\backend' exit code 0",
+    "2025-09-20 10:57:50.885 [info] (Windsurf) 2025-09-20 10:57:50.884 [INFO]: [Terminal] Command started: del src\\__tests__\\services\\user.service.*.test.ts pid 21316",
+    "2025-09-20 10:57:50.956 [info] (Windsurf) 2025-09-20 10:57:50.955 [INFO]: [Terminal] Command completed: del src\\__tests__\\services\\user.service.*.test.ts exit code 0",
+    "2025-09-20 11:00:24.853 [info] (Windsurf) 2025-09-20 11:00:24.852 [INFO]: [Terminal] Command started: cd 'c:\\flutter\\FundingMachine\\backend' pid 21316",
+    "2025-09-20 11:00:24.881 [info] (Windsurf) 2025-09-20 11:00:24.880 [INFO]: [Terminal] Command completed: cd 'c:\\flutter\\FundingMachine\\backend' exit code 0",
+    "2025-09-20 11:00:26.544 [info] (Windsurf) 2025-09-20 11:00:26.543 [INFO]: [Terminal] Command started: del src\\__tests__\\services\\minimal.test.ts src\\__tests__\\services\\repository-pattern.test.ts src\\__tests__\\services\\simple-class.test.ts src\\__tests__\\services\\simple.service.test.ts src\\__tests__\\services\\simplified-user.service.test.ts src\\__tests__\\services\\user-service-minimal.test.ts src\\__tests__\\services\\user-service-simplified.test.ts pid 21316",
+    "2025-09-20 11:00:26.586 [info] (Windsurf) 2025-09-20 11:00:26.586 [INFO]: [Terminal] Command completed: del src\\__tests__\\services\\minimal.test.ts src\\__tests__\\services\\repository-pattern.test.ts src\\__tests__\\services\\simple-class.test.ts src\\__tests__\\services\\simple.service.test.ts src\\__tests__\\services\\simplified-user.service.test.ts src\\__tests__\\services\\user-service-minimal.test.ts src\\__tests__\\services\\user-service-simplified.test.ts exit code 1",
+    "2025-09-20 11:03:31.996 [info] (Windsurf) 2025-09-20 11:03:31.995 [INFO]: [Terminal] Command started: cd 'c:\\flutter\\FundingMachine\\backend' pid 21316",
+    "2025-09-20 11:03:32.035 [info] (Windsurf) 2025-09-20 11:03:32.034 [INFO]: [Terminal] Command completed: cd 'c:\\flutter\\FundingMachine\\backend' exit code 0",
+    "2025-09-20 11:03:33.028 [info] (Windsurf) 2025-09-20 11:03:33.028 [INFO]: [Terminal] Command started: del src\\__tests__\\services\\minimal.test.ts pid 21316",
+    "2025-09-20 11:03:33.062 [info] (Windsurf) 2025-09-20 11:03:33.061 [INFO]: [Terminal] Command completed: del src\\__tests__\\services\\minimal.test.ts exit code 0",
+    "2025-09-20 11:06:15.746 [info] (Windsurf) 2025-09-20 11:06:15.745 [INFO]: [Terminal] Command started: cd 'c:\\flutter\\FundingMachine\\backend' pid 21316",
+    "2025-09-20 11:06:15.773 [info] (Windsurf) 2025-09-20 11:06:15.771 [INFO]: [Terminal] Command completed: cd 'c:\\flutter\\FundingMachine\\backend' exit code 0",
+    "2025-09-20 11:06:16.814 [info] (Windsurf) 2025-09-20 11:06:16.813 [INFO]: [Terminal] Command started: del src\\__tests__\\services\\repository-pattern.test.ts pid 21316",
+    "2025-09-20 11:06:16.842 [info] (Windsurf) 2025-09-20 11:06:16.841 [INFO]: [Terminal] Command completed: del src\\__tests__\\services\\repository-pattern.test.ts exit code 0",
+    "2025-09-20 11:06:24.362 [info] (Windsurf) 2025-09-20 11:06:24.362 [INFO]: [Terminal] Command started: cd 'c:\\flutter\\FundingMachine\\backend' pid 21316",
+    "2025-09-20 11:06:24.392 [info] (Windsurf) 2025-09-20 11:06:24.392 [INFO]: [Terminal] Command completed: cd 'c:\\flutter\\FundingMachine\\backend' exit code 0",
+    "2025-09-20 11:06:25.341 [info] (Windsurf) 2025-09-20 11:06:25.340 [INFO]: [Terminal] Command started: del src\\__tests__\\services\\simple-class.test.ts pid 21316",
+    "2025-09-20 11:06:25.367 [info] (Windsurf) 2025-09-20 11:06:25.366 [INFO]: [Terminal] Command completed: del src\\__tests__\\services\\simple-class.test.ts exit code 0",
+    "2025-09-20 11:06:31.610 [info] (Windsurf) 2025-09-20 11:06:31.609 [INFO]: [Terminal] Command started: cd 'c:\\flutter\\FundingMachine\\backend' pid 21316",
+    "2025-09-20 11:06:31.639 [info] (Windsurf) 2025-09-20 11:06:31.638 [INFO]: [Terminal] Command completed: cd 'c:\\flutter\\FundingMachine\\backend' exit code 0",
+    "2025-09-20 11:06:32.788 [info] (Windsurf) 2025-09-20 11:06:32.787 [INFO]: [Terminal] Command started: del src\\__tests__\\services\\simple.service.test.ts pid 21316",
+    "2025-09-20 11:06:32.812 [info] (Windsurf) 2025-09-20 11:06:32.812 [INFO]: [Terminal] Command completed: del src\\__tests__\\services\\simple.service.test.ts exit code 0",
+    "2025-09-20 11:06:40.761 [info] (Windsurf) 2025-09-20 11:06:40.761 [INFO]: [Terminal] Command started: cd 'c:\\flutter\\FundingMachine\\backend' pid 21316",
+    "2025-09-20 11:06:40.784 [info] (Windsurf) 2025-09-20 11:06:40.783 [INFO]: [Terminal] Command completed: cd 'c:\\flutter\\FundingMachine\\backend' exit code 0",
+    "2025-09-20 11:06:41.766 [info] (Windsurf) 2025-09-20 11:06:41.765 [INFO]: [Terminal] Command started: del src\\__tests__\\services\\simplified-user.service.test.ts pid 21316",
+    "2025-09-20 11:06:41.793 [info] (Windsurf) 2025-09-20 11:06:41.792 [INFO]: [Terminal] Command completed: del src\\__tests__\\services\\simplified-user.service.test.ts exit code 0",
+    "2025-09-20 11:06:48.028 [info] (Windsurf) 2025-09-20 11:06:48.028 [INFO]: [Terminal] Command started: cd 'c:\\flutter\\FundingMachine\\backend' pid 21316",
+    "2025-09-20 11:06:48.072 [info] (Windsurf) 2025-09-20 11:06:48.071 [INFO]: [Terminal] Command completed: cd 'c:\\flutter\\FundingMachine\\backend' exit code 0",
+    "2025-09-20 11:06:49.061 [info] (Windsurf) 2025-09-20 11:06:49.060 [INFO]: [Terminal] Command started: del src\\__tests__\\services\\user-service-minimal.test.ts pid 21316",
+    "2025-09-20 11:06:49.096 [info] (Windsurf) 2025-09-20 11:06:49.096 [INFO]: [Terminal] Command completed: del src\\__tests__\\services\\user-service-minimal.test.ts exit code 0",
+    "2025-09-20 11:06:56.951 [info] (Windsurf) 2025-09-20 11:06:56.950 [INFO]: [Terminal] Command started: cd 'c:\\flutter\\FundingMachine\\backend' pid 21316",
+    "2025-09-20 11:06:56.978 [info] (Windsurf) 2025-09-20 11:06:56.978 [INFO]: [Terminal] Command completed: cd 'c:\\flutter\\FundingMachine\\backend' exit code 0",
+    "2025-09-20 11:06:58.417 [info] (Windsurf) 2025-09-20 11:06:58.417 [INFO]: [Terminal] Command started: del src\\__tests__\\services\\user-service-simplified.test.ts pid 21316",
+    "2025-09-20 11:06:58.445 [info] (Windsurf) 2025-09-20 11:06:58.444 [INFO]: [Terminal] Command completed: del src\\__tests__\\services\\user-service-simplified.test.ts exit code 0",
+    "2025-09-20 11:26:51.196 [info] (Windsurf) 2025-09-20 11:26:51.196 [INFO]: [Terminal] Command started: cd 'c:\\flutter\\FundingMachine\\backend' pid 21316",
+    "2025-09-20 11:26:51.239 [info] (Windsurf) 2025-09-20 11:26:51.238 [INFO]: [Terminal] Command completed: cd 'c:\\flutter\\FundingMachine\\backend' exit code 0",
+    "2025-09-20 11:26:52.243 [info] (Windsurf) 2025-09-20 11:26:52.243 [INFO]: [Terminal] Command started: del src\\__tests__\\services\\minimal.test.ts pid 21316",
+    "2025-09-20 11:26:52.246 [info] (Windsurf) 2025-09-20 11:26:52.245 [INFO]: [Terminal] Command completed: del src\\__tests__\\services\\minimal.test.ts exit code 1",
+    "2025-09-20 11:29:42.968 [info] (Windsurf) 2025-09-20 11:29:42.967 [INFO]: [Terminal] Command started: cd 'c:\\flutter\\FundingMachine\\backend' pid 21316",
+    "2025-09-20 11:29:42.990 [info] (Windsurf) 2025-09-20 11:29:42.989 [INFO]: [Terminal] Command completed: cd 'c:\\flutter\\FundingMachine\\backend' exit code 0",
+    "2025-09-20 11:29:43.974 [info] (Windsurf) 2025-09-20 11:29:43.973 [INFO]: [Terminal] Command started: copy /Y src\\services\\user.service.new.ts src\\services\\user.service.ts pid 21316",
+    "2025-09-20 11:29:43.997 [info] (Windsurf) 2025-09-20 11:29:43.996 [INFO]: [Terminal] Command completed: copy /Y src\\services\\user.service.new.ts src\\services\\user.service.ts exit code 1",
+    "2025-09-20 11:29:47.741 [info] (Windsurf) 2025-09-20 11:29:47.740 [INFO]: [Terminal] Command started: cd 'c:\\flutter\\FundingMachine\\backend' pid 21316",
+    "2025-09-20 11:29:47.764 [info] (Windsurf) 2025-09-20 11:29:47.763 [INFO]: [Terminal] Command completed: cd 'c:\\flutter\\FundingMachine\\backend' exit code 0",
+    "2025-09-20 11:29:48.800 [info] (Windsurf) 2025-09-20 11:29:48.799 [INFO]: [Terminal] Command started: copy src\\services\\user.service.new.ts src\\services\\user.service.ts pid 21316",
+    "2025-09-20 11:29:48.834 [info] (Windsurf) 2025-09-20 11:29:48.832 [INFO]: [Terminal] Command completed: copy src\\services\\user.service.new.ts src\\services\\user.service.ts exit code 0",
+    "2025-09-20 11:29:53.084 [info] (Windsurf) 2025-09-20 11:29:53.083 [INFO]: [Terminal] Command started: cd 'c:\\flutter\\FundingMachine\\backend' pid 21316",
+    "2025-09-20 11:29:53.106 [info] (Windsurf) 2025-09-20 11:29:53.105 [INFO]: [Terminal] Command completed: cd 'c:\\flutter\\FundingMachine\\backend' exit code 0",
+    "2025-09-20 11:29:54.601 [info] (Windsurf) 2025-09-20 11:29:54.600 [INFO]: [Terminal] Command started: npm test pid 21316",
+    "2025-09-20 11:30:08.967 [info] (Windsurf) 2025-09-20 11:30:08.966 [INFO]: [Terminal] Command completed: npm test exit code 1",
+    "2025-09-20 11:30:22.718 [info] (Windsurf) 2025-09-20 11:30:22.718 [INFO]: [Terminal] Command started: cd 'c:\\flutter\\FundingMachine\\backend' pid 21316",
+    "2025-09-20 11:30:22.754 [info] (Windsurf) 2025-09-20 11:30:22.753 [INFO]: [Terminal] Command completed: cd 'c:\\flutter\\FundingMachine\\backend' exit code 0",
+    "2025-09-20 11:30:24.106 [info] (Windsurf) 2025-09-20 11:30:24.105 [INFO]: [Terminal] Command started: npx jest --verbose pid 21316",
+    "2025-09-20 11:30:39.700 [info] (Windsurf) 2025-09-20 11:30:39.699 [INFO]: [Terminal] Command completed: npx jest --verbose exit code 1",
+    "2025-09-20 11:30:43.595 [info] (Windsurf) 2025-09-20 11:30:43.595 [INFO]: [Terminal] Command started: cd 'c:\\flutter\\FundingMachine\\backend' pid 21316",
+    "2025-09-20 11:30:43.626 [info] (Windsurf) 2025-09-20 11:30:43.626 [INFO]: [Terminal] Command completed: cd 'c:\\flutter\\FundingMachine\\backend' exit code 0",
+    "2025-09-20 11:30:44.736 [info] (Windsurf) 2025-09-20 11:30:44.736 [INFO]: [Terminal] Command started: npx jest src/__tests__/services/user.service.test.ts --verbose pid 21316",
+    "2025-09-20 11:30:48.803 [info] E0920 11:30:48.802843 15624 interceptor.go:73] /exa.language_server_pb.LanguageServerService/AcknowledgeCascadeCodeEdit (unknown): no unacknowledged steps for file file:///c:/flutter/FundingMachine/backend/src/services/user.service.new.ts",
+    "2025-09-20 11:30:58.526 [info] (Windsurf) 2025-09-20 11:30:58.525 [INFO]: [Terminal] Command completed: npx jest src/__tests__/services/user.service.test.ts --verbose exit code 1",
+    "2025-09-20 11:31:08.891 [info] (Windsurf) 2025-09-20 11:31:08.891 [INFO]: [Terminal] Command started: cd 'c:\\flutter\\FundingMachine\\backend' pid 21316",
+    "2025-09-20 11:31:08.920 [info] (Windsurf) 2025-09-20 11:31:08.919 [INFO]: [Terminal] Command completed: cd 'c:\\flutter\\FundingMachine\\backend' exit code 0",
+    "2025-09-20 11:31:10.398 [info] (Windsurf) 2025-09-20 11:31:10.398 [INFO]: [Terminal] Command started: npx jest src/__tests__/services/user.service.test.ts --runInBand --verbose pid 21316",
+    "2025-09-20 11:31:22.018 [info] (Windsurf) 2025-09-20 11:31:22.017 [INFO]: [Terminal] Command completed: npx jest src/__tests__/services/user.service.test.ts --runInBand --verbose exit code 1",
+    "2025-09-20 11:31:26.820 [info] (Windsurf) 2025-09-20 11:31:26.820 [INFO]: [Terminal] Command started: cd 'c:\\flutter\\FundingMachine\\backend' pid 21316",
+    "2025-09-20 11:31:26.850 [info] (Windsurf) 2025-09-20 11:31:26.849 [INFO]: [Terminal] Command completed: cd 'c:\\flutter\\FundingMachine\\backend' exit code 0",
+    "2025-09-20 11:31:28.165 [info] (Windsurf) 2025-09-20 11:31:28.164 [INFO]: [Terminal] Command started: npx jest --no-cache --runInBand --verbose pid 21316",
+    "2025-09-20 11:31:45.535 [info] (Windsurf) 2025-09-20 11:31:45.533 [INFO]: [Terminal] Command completed: npx jest --no-cache --runInBand --verbose exit code 1",
+    "2025-09-20 11:31:49.994 [info] (Windsurf) 2025-09-20 11:31:49.992 [INFO]: [Terminal] Command started: cd 'c:\\flutter\\FundingMachine\\backend' pid 21316",
+    "2025-09-20 11:31:50.034 [info] (Windsurf) 2025-09-20 11:31:50.032 [INFO]: [Terminal] Command completed: cd 'c:\\flutter\\FundingMachine\\backend' exit code 0",
+    "2025-09-20 11:31:51.543 [info] (Windsurf) 2025-09-20 11:31:51.542 [INFO]: [Terminal] Command started: npx jest src/__tests__/services/user.service.test.ts --no-cache --runInBand --testNamePattern=register pid 21316",
+    "2025-09-20 11:32:04.877 [info] (Windsurf) 2025-09-20 11:32:04.876 [INFO]: [Terminal] Command completed: npx jest src/__tests__/services/user.service.test.ts --no-cache --runInBand --testNamePattern=register exit code 1",
+    "2025-09-20 11:32:20.118 [info] (Windsurf) 2025-09-20 11:32:20.117 [INFO]: [Terminal] Command started: cd 'c:\\flutter\\FundingMachine\\backend' pid 21316",
+    "2025-09-20 11:32:20.151 [info] (Windsurf) 2025-09-20 11:32:20.149 [INFO]: [Terminal] Command completed: cd 'c:\\flutter\\FundingMachine\\backend' exit code 0",
+    "2025-09-20 11:32:21.269 [info] (Windsurf) 2025-09-20 11:32:21.268 [INFO]: [Terminal] Command started: npx jest src/__tests__/debug.test.ts --no-cache --runInBand --verbose pid 21316",
+    "2025-09-20 11:32:32.683 [info] (Windsurf) 2025-09-20 11:32:32.682 [INFO]: [Terminal] Command completed: npx jest src/__tests__/debug.test.ts --no-cache --runInBand --verbose exit code 0",
+    "2025-09-20 11:36:20.609 [info] E0920 11:36:20.609313 15624 interceptor.go:73] /exa.language_server_pb.LanguageServerService/AcknowledgeCascadeCodeEdit (unknown): no unacknowledged steps for file file:///c:/flutter/FundingMachine/backend/src/__tests__/debug.test.ts"
+  ],
+  "languageServerDiagnostics": {
+    "logs": [
+      "I0920 09:34:11.979707 15624 main.go:624] Setting GOMAXPROCS to 4\n",
+      "I0920 09:34:11.999244 15624 main.go:836] Starting language server process with pid 15624\n",
+      "I0920 09:34:12.063677 15624 server.go:342] Language server will attempt to listen on host 127.0.0.1\n",
+      "I0920 09:34:12.086849 15624 server.go:349] Language server listening on random port at 59825\n",
+      "I0920 09:34:13.248936 15624 server.go:482] Created extension server client at port 51612\n",
+      "E0920 10:16:09.409734 15624 interceptor.go:73] /exa.language_server_pb.LanguageServerService/AcknowledgeCascadeCodeEdit (unknown): no unacknowledged steps for file file:///c:/flutter/FundingMachine/backend/src/__tests__/services/user.service.final.test.ts\n",
+      "E0920 11:30:48.802843 15624 interceptor.go:73] /exa.language_server_pb.LanguageServerService/AcknowledgeCascadeCodeEdit (unknown): no unacknowledged steps for file file:///c:/flutter/FundingMachine/backend/src/services/user.service.new.ts\n",
+      "E0920 11:36:20.609313 15624 interceptor.go:73] /exa.language_server_pb.LanguageServerService/AcknowledgeCascadeCodeEdit (unknown): no unacknowledged steps for file file:///c:/flutter/FundingMachine/backend/src/__tests__/debug.test.ts\n"
+    ]
+  },
+  "recentTrajectories": [
+    {
+      "cascadeId": "aac1541c-a01e-4f33-9a60-cc97945cdf8a",
+      "trajectoryId": "65264e90-15af-42f8-ab1b-ca1ff7516943",
+      "summary": "Fixing Failed Tests",
+      "lastStepIndex": 980,
+      "lastModifiedTime": "2025-09-20T04:32:38.031Z"
+    },
+    {
+      "cascadeId": "eb123200-b12c-449d-b208-0f78ca13c233",
+      "trajectoryId": "957d758b-ceac-4734-8be7-dfbcf7707fd4",
+      "summary": "Add Project to GitHub",
+      "lastStepIndex": 30,
+      "lastModifiedTime": "2025-09-18T07:36:10.105Z"
+    },
+    {
+      "cascadeId": "2d5e7f00-04d1-497c-ba18-2f7377b20f38",
+      "trajectoryId": "533d653a-09ca-4d0a-9b9b-b5a738b0d094",
+      "summary": "Funding Machine App Development",
+      "lastStepIndex": 62,
+      "lastModifiedTime": "2025-09-17T09:23:10.611Z"
+    },
+    {
+      "cascadeId": "a01e2bc9-94d6-41ea-804f-bd81ee65757d",
+      "trajectoryId": "713259b5-f939-4608-bfb0-fb07dafea891",
+      "summary": "Docker Build and Debug for Microservices",
+      "lastStepIndex": 373,
+      "lastModifiedTime": "2025-09-17T07:01:11.851Z"
+    },
+    {
+      "cascadeId": "ed28e916-1ac0-4d0e-91ef-60114de9e4be",
+      "trajectoryId": "f970d645-9f20-48f2-85fa-d442983f1ec9",
+      "summary": "Fix Next.js Command Not Found",
+      "lastStepIndex": 21,
+      "lastModifiedTime": "2025-09-16T10:20:54.394Z"
+    },
+    {
+      "cascadeId": "b402d5d4-9b31-43de-8fbf-b53f5fbe0c3c",
+      "trajectoryId": "acd7f270-35d7-43b5-908f-857e5fc47391",
+      "summary": "Check Current Git Branch",
+      "lastStepIndex": 42,
+      "lastModifiedTime": "2025-09-15T10:21:59.243Z"
+    },
+    {
+      "cascadeId": "751e469f-5cce-4f24-865c-aa3ab104d774",
+      "trajectoryId": "3f646493-4d4e-4bd5-9113-3db9c5565812",
+      "summary": "Fix TypeScript Annotations in Vue",
+      "lastStepIndex": 8,
+      "lastModifiedTime": "2025-09-12T09:13:20.647Z"
+    },
+    {
+      "cascadeId": "81a60cf0-ef0d-4061-a2b9-147211764d9a",
+      "trajectoryId": "de7213b5-efd5-4c6b-b9d9-d360b72b503d",
+      "summary": "Fix User Dropdown Visibility Bug",
+      "lastStepIndex": 14,
+      "lastModifiedTime": "2025-09-12T08:57:42.508Z"
+    },
+    {
+      "cascadeId": "a5d1e599-18b5-4d61-bfae-e1874dc62996",
+      "trajectoryId": "2f7e3c4d-18a6-49e0-a363-d76b5604dc4d",
+      "summary": "Push Master Branch Updates to Main",
+      "lastStepIndex": 30,
+      "lastModifiedTime": "2025-09-11T08:34:08.923Z"
+    },
+    {
+      "cascadeId": "6475d1cd-a9f8-4c45-ad27-e66e4d639ef5",
+      "trajectoryId": "90adc6e5-b075-48bb-931f-c2d2f91ac4c3",
+      "summary": "Frontend Image Rebuild and UI Tweaks",
+      "lastStepIndex": 171,
+      "lastModifiedTime": "2025-09-10T10:10:11.394Z"
+    }
+  ],
+  "fields": {
+    "cascadeId": "aac1541c-a01e-4f33-9a60-cc97945cdf8a",
+    "currentLatestStepIndex": 980,
+    "trajectoryId": "65264e90-15af-42f8-ab1b-ca1ff7516943",
+    "consoleLogs": [
+      "[LOG] 2025-9-20 9:34:37.179 Sentry initialized",
+      "[LOG] 2025-9-20 11:36:32.313 clearing cascade id aac1541c-a01e-4f33-9a60-cc97945cdf8a"
+    ]
+  }
+}
