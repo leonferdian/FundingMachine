@@ -111,7 +111,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   controller: _nameController,
                   label: 'Full Name',
                   hint: 'Enter your full name',
-                  prefixIcon: Icons.person_outline,
+                  prefixIcon: const Icon(Icons.person_outline),
                   validator: (value) {
                     if (value == null || value.isEmpty) {
                       return 'Please enter your name';
@@ -126,7 +126,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   controller: _emailController,
                   label: 'Email Address',
                   hint: 'Enter your email',
-                  prefixIcon: Icons.email_outlined,
+                  prefixIcon: const Icon(Icons.email_outlined),
                   keyboardType: TextInputType.emailAddress,
                   validator: (value) {
                     if (value == null || value.isEmpty) {
@@ -145,7 +145,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   controller: _passwordController,
                   label: 'Password',
                   hint: 'Enter your password',
-                  prefixIcon: Icons.lock_outline,
+                  prefixIcon: const Icon(Icons.lock_outline),
                   obscureText: _obscurePassword,
                   suffixIcon: IconButton(
                     icon: Icon(
@@ -175,7 +175,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   controller: _confirmPasswordController,
                   label: 'Confirm Password',
                   hint: 'Confirm your password',
-                  prefixIcon: Icons.lock_outline,
+                  prefixIcon: const Icon(Icons.lock_outline),
                   obscureText: _obscureConfirmPassword,
                   suffixIcon: IconButton(
                     icon: Icon(

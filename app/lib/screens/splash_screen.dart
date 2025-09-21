@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:provider/provider.dart';
+import '../providers/auth_provider.dart';
 import 'auth/login_screen.dart';
+import 'home/home_screen.dart';
 import '../constants/app_theme.dart';
 
 class SplashScreen extends StatefulWidget {
+  static const String routeName = '/splash';
+  
   const SplashScreen({super.key});
 
   @override
@@ -30,13 +34,25 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
     );
 
     _controller.forward();
+    _checkAuthStatus();
+  }
 
-    // Navigate to login screen after animation completes
-    Future.delayed(const Duration(seconds: 2), () {
-      Navigator.of(context).pushReplacement(
-        MaterialPageRoute(builder: (_) => const LoginScreen()),
-      );
-    });
+  Future<void> _checkAuthStatus() async {
+    // Wait for the splash animation to complete
+    await Future.delayed(const Duration(seconds: 2));
+    
+    if (!mounted) return;
+    
+    final authProvider = context.read<AuthProvider>();
+    final isAuthenticated = await Future.value(authProvider.isAuthenticated);
+    
+    if (!mounted) return;
+    
+    Navigator.of(context).pushReplacement(
+      MaterialPageRoute(
+        builder: (_) => isAuthenticated ? const HomeScreen() : const LoginScreen(),
+      ),
+    );
   }
 
   @override

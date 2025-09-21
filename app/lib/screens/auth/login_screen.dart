@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:go_router/go_router.dart';
+import 'package:provider/provider.dart';
+import '../../providers/auth_provider.dart';
 import '../../constants/app_theme.dart';
 import '../../widgets/custom_text_field.dart';
 import '../../widgets/primary_button.dart';
@@ -23,6 +23,18 @@ class _LoginScreenState extends State<LoginScreen> {
   bool _isLoading = false;
 
   @override
+  void initState() {
+    super.initState();
+    // Clear any previous errors when the screen is initialized
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      final authProvider = context.read<AuthProvider>();
+      if (authProvider.error != null) {
+        authProvider.clearError();
+      }
+    });
+  }
+
+  @override
   void dispose() {
     _emailController.dispose();
     _passwordController.dispose();
@@ -34,15 +46,29 @@ class _LoginScreenState extends State<LoginScreen> {
 
     setState(() => _isLoading = true);
     
-    // Simulate API call
-    await Future.delayed(const Duration(seconds: 2));
+    final authProvider = context.read<AuthProvider>();
+    final success = await authProvider.login(
+      _emailController.text.trim(),
+      _passwordController.text,
+    );
     
     if (mounted) {
       setState(() => _isLoading = false);
-      // Navigate to home screen on successful login
-      Navigator.of(context).pushReplacement(
-        MaterialPageRoute(builder: (_) => const HomeScreen()),
-      );
+      
+      if (success) {
+        // Navigate to home screen on successful login
+        Navigator.of(context).pushReplacement(
+          MaterialPageRoute(builder: (_) => const HomeScreen()),
+        );
+      } else if (authProvider.error != null) {
+        // Show error message if login fails
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text(authProvider.error ?? 'Login failed'),
+            backgroundColor: AppTheme.errorColor,
+          ),
+        );
+      }
     }
   }
 
@@ -93,7 +119,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   controller: _emailController,
                   label: 'Email Address',
                   hint: 'Enter your email',
-                  prefixIcon: Icons.email_outlined,
+                  prefixIcon: const Icon(Icons.email_outlined),
                   keyboardType: TextInputType.emailAddress,
                   validator: (value) {
                     if (value == null || value.isEmpty) {
@@ -112,7 +138,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   controller: _passwordController,
                   label: 'Password',
                   hint: 'Enter your password',
-                  prefixIcon: Icons.lock_outline,
+                  prefixIcon: const Icon(Icons.lock_outline),
                   obscureText: _obscurePassword,
                   suffixIcon: IconButton(
                     icon: Icon(
@@ -178,8 +204,8 @@ class _LoginScreenState extends State<LoginScreen> {
                 const SizedBox(height: 24),
                 
                 // Divider with "or" text
-                Row(
-                  children: const [
+                const Row(
+                  children: [
                     Expanded(child: Divider()),
                     Padding(
                       padding: EdgeInsets.symmetric(horizontal: 16.0),

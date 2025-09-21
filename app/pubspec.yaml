@@ -49,15 +49,19 @@ dependencies:
   dio: ^5.3.2
   
   # Storage
+  flutter_secure_storage: ^9.0.0
   shared_preferences: ^2.2.2
   
   # Form Validation
+  form_validator: ^2.1.1
   
   # Utils
   intl: ^0.19.0
+  equatable: ^2.0.5
   uuid: ^4.2.2
   url_launcher: ^6.1.14
   image_picker: ^1.0.5
+  json_annotation: ^4.8.1
   
   # Animation
   lottie: ^2.7.0
