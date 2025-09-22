@@ -1,4 +1,3 @@
-import { injectable } from 'tsyringe';
 import { BaseRepository } from '../repositories/base.repository';
 
 export interface IBaseService<T, CreateDto, UpdateDto> {
@@ -10,7 +9,6 @@ export interface IBaseService<T, CreateDto, UpdateDto> {
   count(where?: any): Promise<number>;
 }
 
-@injectable()
 export abstract class BaseService<T, CreateDto, UpdateDto> implements IBaseService<T, CreateDto, UpdateDto> {
   constructor(protected repository: BaseRepository<T>) {}
 

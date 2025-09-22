@@ -1,7 +1,5 @@
 import { PrismaClient, Prisma } from '@prisma/client';
-import { injectable } from 'tsyringe';
 
-@injectable()
 export abstract class BaseRepository<T> {
   constructor(protected prisma: PrismaClient) {}
 
