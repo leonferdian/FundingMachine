@@ -17,7 +17,7 @@ class SettingsScreen extends StatelessWidget {
     
     return Scaffold(
       appBar: AppBar(
-        title: Text(Strings.settings),
+        title: const Text(Strings.settings),
       ),
       body: ListView(
         padding: const EdgeInsets.all(16.0),
@@ -116,24 +116,24 @@ class SettingsScreen extends StatelessWidget {
                     style: Theme.of(context).textTheme.titleMedium,
                   ),
                   const SizedBox(height: 16),
-                  ListTile(
-                    leading: const Icon(Icons.info_outline),
-                    title: const Text('Version'),
-                    subtitle: Text('Version ${Strings.appVersion}'),
+                  const ListTile(
+                    leading: Icon(Icons.info_outline),
+                    title: Text('Version'),
+                    subtitle: Text(Strings.version),
                   ),
-                  ListTile(
-                    leading: const Icon(Icons.privacy_tip_outlined),
-                    title: const Text('Privacy Policy'),
-                    onTap: () {
-                      // TODO: Navigate to privacy policy
-                    },
+                  Builder(
+                    builder: (context) => ListTile(
+                      leading: const Icon(Icons.privacy_tip_outlined),
+                      title: const Text('Privacy Policy'),
+                      onTap: () => _navigateToPrivacyPolicy(context),
+                    ),
                   ),
-                  ListTile(
-                    leading: const Icon(Icons.description_outlined),
-                    title: const Text('Terms of Service'),
-                    onTap: () {
-                      // TODO: Navigate to terms of service
-                    },
+                  Builder(
+                    builder: (context) => ListTile(
+                      leading: const Icon(Icons.description_outlined),
+                      title: const Text('Terms of Service'),
+                      onTap: () => _navigateToTermsOfService(context),
+                    ),
                   ),
                 ],
               ),
@@ -144,6 +144,26 @@ class SettingsScreen extends StatelessWidget {
     );
   }
   
+  void _navigateToPrivacyPolicy(BuildContext context) {
+    // For now, show a snackbar. In a real app, you would navigate to a privacy policy screen
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(
+        content: Text('Privacy Policy - Coming Soon!'),
+        duration: Duration(seconds: 2),
+      ),
+    );
+  }
+
+  void _navigateToTermsOfService(BuildContext context) {
+    // For now, show a snackbar. In a real app, you would navigate to a terms of service screen
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(
+        content: Text('Terms of Service - Coming Soon!'),
+        duration: Duration(seconds: 2),
+      ),
+    );
+  }
+
   String _getLanguageName(String languageCode) {
     switch (languageCode) {
       case 'en':
