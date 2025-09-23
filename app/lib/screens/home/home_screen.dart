@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../../constants/app_theme.dart';
 import 'dashboard_screen.dart';
 import 'transactions_screen.dart';
@@ -98,8 +97,8 @@ class _HomeScreenState extends State<HomeScreen> {
                 // Handle fund action
               },
               backgroundColor: AppTheme.primaryColor,
-              child: const Icon(Icons.add, color: Colors.white, size: 28),
               elevation: 2,
+              child: const Icon(Icons.add, color: Colors.white, size: 28),
             )
           : null,
     );

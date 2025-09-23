@@ -1,14 +1,17 @@
+// Core Flutter and Dart imports
 import 'dart:async';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:provider/provider.dart' as provider;
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'constants/app_theme.dart';
 import 'constants/strings.dart';
+import 'providers.dart';
 import 'providers/auth_provider.dart';
 import 'providers/theme_provider.dart';
 import 'routes/app_router.dart';
@@ -144,22 +147,26 @@ Future<void> _initializeApp() async {
       systemNavigationBarIconBrightness: Brightness.dark,
     ));
     
-    // Create auth service
-    final authService = AuthService(prefs);
-    
-    // Run the app with providers
+    // Initialize shared preferences
+    final sharedPreferences = await SharedPreferences.getInstance();
+  
     runApp(
-      MultiProvider(
-        providers: [
-          Provider<AuthService>(create: (_) => authService),
-          ChangeNotifierProvider(
-            create: (context) => AuthProvider(authService),
-          ),
-          ChangeNotifierProvider(
-            create: (_) => ThemeProvider()..initialize(),
-          ),
+      ProviderScope(
+        overrides: [
+          sharedPreferencesProvider.overrideWithValue(sharedPreferences),
         ],
-        child: const MyApp(),
+        child: provider.MultiProvider(
+          providers: [
+            provider.ChangeNotifierProvider(create: (_) => ThemeProvider()),
+            provider.Provider(create: (_) => AuthService(prefs)),
+            provider.ChangeNotifierProvider(
+              create: (context) => AuthProvider(
+                context.read<AuthService>(),
+              ),
+            ),
+          ],
+          child: const MyApp(),
+        ),
       ),
     );
   } catch (e, stack) {
@@ -214,15 +221,17 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<ThemeProvider>(
-      builder: (context, themeProvider, _) {
-        return MaterialApp(
+    return Consumer(
+      builder: (context, ref, _) {
+        final themeMode = ref.watch(themeProvider);
+        
+        return MaterialApp.router(
+          routerConfig: AppRouter().router,
           title: Strings.appName,
           debugShowCheckedModeBanner: false,
-          navigatorKey: navigatorKey,
           theme: AppTheme.lightTheme,
           darkTheme: AppTheme.darkTheme,
-          themeMode: themeProvider.themeMode,
+          themeMode: themeMode,
           locale: LocalizationService.currentLocale,
           supportedLocales: LocalizationService.supportedLocales,
           localizationsDelegates: const [
@@ -231,15 +240,16 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
             GlobalWidgetsLocalizations.delegate,
             GlobalCupertinoLocalizations.delegate,
           ],
-          initialRoute: AppRouter.initialRoute,
-          onGenerateRoute: (settings) => AppRouter.generateRoute(settings),
           builder: (context, child) {
             // Ensure consistent text scaling
             final mediaQuery = MediaQuery.of(context);
             
             return MediaQuery(
               data: mediaQuery.copyWith(
-                textScaler: MediaQuery.textScalerOf(context).clamp(minScaleFactor: 0.8, maxScaleFactor: 1.5),
+                textScaler: MediaQuery.textScalerOf(context).clamp(
+                  minScaleFactor: 0.8, 
+                  maxScaleFactor: 1.5,
+                ),
                 boldText: false,
                 highContrast: false,
               ),
@@ -261,7 +271,7 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
               ),
             );
           },
-          // Performance overlay for debug mode
+          // Debug settings
           debugShowMaterialGrid: false,
           showPerformanceOverlay: false,
           checkerboardRasterCacheImages: false,

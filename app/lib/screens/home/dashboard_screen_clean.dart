@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import '../../constants/app_theme.dart';
 import '../../models/transaction_model.dart';
 import '../../services/dashboard_service.dart';
 
@@ -20,7 +18,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
   final List<Transaction> _recentTransactions = [];
   bool _isLoading = true;
   String? _errorMessage;
-  
+
   @override
   void initState() {
     super.initState();
@@ -143,7 +141,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
     );
   }
 
-  Widget _buildStatCard(String title, String amount, IconData icon, Color color) {
+  Widget _buildStatCard(
+      String title, String amount, IconData icon, Color color) {
     return Card(
       elevation: 2,
       shape: RoundedRectangleBorder(

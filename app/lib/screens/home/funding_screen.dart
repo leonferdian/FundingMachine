@@ -6,7 +6,7 @@ import 'platform_details_screen.dart';
 
 class FundingScreen extends StatefulWidget {
   static const String routeName = '/funding';
-  
+
   const FundingScreen({super.key});
 
   @override
@@ -205,7 +205,7 @@ class _FundingScreenState extends State<FundingScreen> {
                       color: Colors.grey[100],
                       borderRadius: BorderRadius.circular(12),
                       image: DecorationImage(
-                        image: NetworkImage(platform.logoUrl), 
+                        image: NetworkImage(platform.logoUrl),
                         fit: BoxFit.cover,
                       ),
                     ),
@@ -232,19 +232,21 @@ class _FundingScreenState extends State<FundingScreen> {
                               width: 8,
                               height: 8,
                               decoration: BoxDecoration(
-                                color: platform.status == PlatformStatus.active 
-                                    ? AppTheme.successColor 
+                                color: platform.status == PlatformStatus.active
+                                    ? AppTheme.successColor
                                     : AppTheme.errorColor,
                                 shape: BoxShape.circle,
                               ),
                             ),
                             const SizedBox(width: 6),
                             Text(
-                              platform.status == PlatformStatus.active ? 'Active' : 'Inactive',
+                              platform.status == PlatformStatus.active
+                                  ? 'Active'
+                                  : 'Inactive',
                               style: TextStyle(
                                 fontSize: 12,
-                                color: platform.status == PlatformStatus.active 
-                                    ? AppTheme.successColor 
+                                color: platform.status == PlatformStatus.active
+                                    ? AppTheme.successColor
                                     : AppTheme.errorColor,
                                 fontWeight: FontWeight.w500,
                               ),
@@ -256,13 +258,14 @@ class _FundingScreenState extends State<FundingScreen> {
                   ),
                   // Connect button
                   ElevatedButton(
-                    onPressed: platform.status == PlatformStatus.active 
+                    onPressed: platform.status == PlatformStatus.active
                         ? () => _connectToPlatform(platform)
                         : null,
                     style: ElevatedButton.styleFrom(
                       backgroundColor: AppTheme.primaryColor,
                       foregroundColor: Colors.white,
-                      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 16, vertical: 8),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(8),
                       ),
@@ -328,7 +331,7 @@ class _FundingScreenState extends State<FundingScreen> {
         ),
         Text(
           label,
-          style: TextStyle(
+          style: const TextStyle(
             fontSize: 12,
             color: AppTheme.lightTextColor,
           ),
