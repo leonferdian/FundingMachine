@@ -8,8 +8,7 @@ import transactionRoutes from './transaction.routes';
 import subscriptionRoutes from './subscription.routes';
 import healthRoutes from './health.routes';
 import aiRoutes from './ai.routes';
-import { protect } from '../utils/jwt';
-import { validate } from '../middleware/validation';
+import paymentMethodRoutes from './paymentMethod.routes';
 
 const router = Router();
 
@@ -27,6 +26,7 @@ router.get('/', (req, res) => {
       fundings: '/api/funding',
       transactions: '/api/transactions',
       subscriptions: '/api/subscriptions',
+      paymentMethods: '/api/payment-methods',
       health: '/api/health',
       ai: {
         chat: '/api/ai/chat',
@@ -89,6 +89,7 @@ router.use('/funding-platforms', protect, fundingPlatformRoutes);
 router.use('/funding', protect, fundingRoutes);
 router.use('/transactions', protect, transactionRoutes);
 router.use('/subscriptions', protect, subscriptionRoutes);
+router.use('/payment-methods', protect, paymentMethodRoutes);
 router.use('/ai', protect, aiRoutes);
 router.use('/health', healthRoutes);
 

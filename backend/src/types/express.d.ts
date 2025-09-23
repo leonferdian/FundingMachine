@@ -1,4 +1,4 @@
-import { User, BankAccount, Funding, Transaction, Subscription } from '@prisma/client';
+import { User, BankAccount, Funding, Transaction, Subscription, PaymentMethod } from '@prisma/client';
 
 declare global {
   namespace Express {
@@ -8,6 +8,7 @@ declare global {
         fundings?: Funding[];
         transactions?: Transaction[];
         subscriptions?: Subscription[];
+        paymentMethods?: PaymentMethod[];
       };
       // Add any other custom request properties here
     }

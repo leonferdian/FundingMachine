@@ -1,4 +1,4 @@
-import { User, BankAccount, Funding } from '@prisma/client';
+import { User, BankAccount, Funding, Transaction, Subscription, PaymentMethod } from '@prisma/client';
 
 declare global {
   namespace Express {
@@ -7,6 +7,9 @@ declare global {
       user?: User & {
         bankAccounts?: BankAccount[];
         fundings?: Funding[];
+        transactions?: Transaction[];
+        subscriptions?: Subscription[];
+        paymentMethods?: PaymentMethod[];
         // Add other related models as needed
       };
       startTime?: number;

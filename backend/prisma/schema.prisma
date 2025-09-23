@@ -23,6 +23,7 @@ model User {
   fundings      Funding[]
   transactions  Transaction[]
   subscriptions Subscription[]
+  paymentMethods PaymentMethod[]
   createdAt     DateTime       @default(now())
   updatedAt     DateTime       @updatedAt
 }
@@ -39,6 +40,24 @@ model BankAccount {
   updatedAt     DateTime  @updatedAt
 
   @@unique([userId, bankCode, accountNumber])
+}
+
+model PaymentMethod {
+  id          String         @id @default(uuid())
+  userId      String
+  user        User           @relation(fields: [userId], references: [id])
+  type        PaymentMethodType
+  provider    String?        // e.g., 'visa', 'mastercard', 'paypal', 'stripe'
+  last4       String?        // Last 4 digits for cards
+  expiryMonth Int?           // For cards
+  expiryYear  Int?           // For cards
+  isDefault   Boolean        @default(false)
+  isActive    Boolean        @default(true)
+  metadata    Json?          // Store additional data like full card info (encrypted)
+  createdAt   DateTime       @default(now())
+  updatedAt   DateTime       @updatedAt
+
+  @@unique([userId, type, provider])
 }
 
 model FundingPlatform {
@@ -114,6 +133,14 @@ enum Role {
   USER
   ADMIN
   SUPER_ADMIN
+}
+
+enum PaymentMethodType {
+  CARD
+  PAYPAL
+  BANK_ACCOUNT
+  DIGITAL_WALLET
+  CRYPTO
 }
 
 enum PlatformType {
