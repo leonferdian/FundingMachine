@@ -5,6 +5,18 @@ import '../../screens/funding/funding_platforms_screen.dart';
 import '../../screens/funding/transaction_history_screen.dart';
 import '../../screens/funding/payment_methods_screen.dart';
 import '../../screens/funding/add_payment_method_screen.dart';
+import '../../screens/home/funding_screen.dart';
+import '../../screens/home/home_screen.dart';
+import '../../screens/home/dashboard_screen.dart';
+import '../../screens/home/profile_screen.dart';
+import '../../screens/home/transactions_screen.dart';
+import '../../screens/home/add_funding_platform_screen.dart';
+import '../../screens/home/platform_details_screen.dart';
+import '../../screens/auth/login_screen.dart';
+import '../../screens/auth/register_screen.dart';
+import '../../screens/auth/forgot_password_screen.dart';
+import '../../screens/settings/settings_screen.dart';
+import '../../screens/splash_screen.dart';
 
 class AppRouter {
   final router = GoRouter(
@@ -21,6 +33,42 @@ class AppRouter {
       GoRoute(
         path: FundingScreen.routeName,
         pageBuilder: (context, state) => _buildPage(const FundingScreen(), state),
+      ),
+      GoRoute(
+        path: HomeScreen.routeName,
+        pageBuilder: (context, state) => _buildPage(const HomeScreen(), state),
+      ),
+      GoRoute(
+        path: DashboardScreen.routeName,
+        pageBuilder: (context, state) => _buildPage(const DashboardScreen(), state),
+      ),
+      GoRoute(
+        path: ProfileScreen.routeName,
+        pageBuilder: (context, state) => _buildPage(const ProfileScreen(), state),
+      ),
+      GoRoute(
+        path: TransactionsScreen.routeName,
+        pageBuilder: (context, state) => _buildPage(const TransactionsScreen(), state),
+      ),
+      GoRoute(
+        path: AddFundingPlatformScreen.routeName,
+        pageBuilder: (context, state) => _buildPage(const AddFundingPlatformScreen(), state),
+      ),
+      GoRoute(
+        path: PlatformDetailsScreen.routeName,
+        pageBuilder: (context, state) => _buildPage(const PlatformDetailsScreen(), state),
+      ),
+      GoRoute(
+        path: LoginScreen.routeName,
+        pageBuilder: (context, state) => _buildPage(const LoginScreen(), state),
+      ),
+      GoRoute(
+        path: RegisterScreen.routeName,
+        pageBuilder: (context, state) => _buildPage(const RegisterScreen(), state),
+      ),
+      GoRoute(
+        path: ForgotPasswordScreen.routeName,
+        pageBuilder: (context, state) => _buildPage(const ForgotPasswordScreen(), state),
       ),
       GoRoute(
         path: FundingPlatformsScreen.routeName,
@@ -96,6 +144,9 @@ class AppRouter {
   static bool requiresAuth(String routeName) {
     final publicRoutes = [
       SplashScreen.routeName,
+      LoginScreen.routeName,
+      RegisterScreen.routeName,
+      ForgotPasswordScreen.routeName,
       // Add other public routes here
     ];
     return !publicRoutes.contains(routeName);
