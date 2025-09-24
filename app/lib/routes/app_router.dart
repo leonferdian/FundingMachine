@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../screens/splash_screen.dart';
-import '../../screens/settings/settings_screen.dart';
-import '../../screens/home/funding_screen.dart';
-import '../../screens/home/add_funding_platform_screen.dart';
-import '../../screens/home/platform_details_screen.dart' show PlatformDetailsScreen, FundingPlatform;
+import '../../screens/funding/funding_platforms_screen.dart';
+import '../../screens/funding/transaction_history_screen.dart';
+import '../../screens/funding/payment_methods_screen.dart';
+import '../../screens/funding/add_payment_method_screen.dart';
 
 class AppRouter {
   final router = GoRouter(
@@ -24,23 +23,20 @@ class AppRouter {
         pageBuilder: (context, state) => _buildPage(const FundingScreen(), state),
       ),
       GoRoute(
-        path: AddFundingPlatformScreen.routeName,
-        pageBuilder: (context, state) => _buildPage(const AddFundingPlatformScreen(), state),
+        path: FundingPlatformsScreen.routeName,
+        pageBuilder: (context, state) => _buildPage(const FundingPlatformsScreen(), state),
       ),
       GoRoute(
-        path: '${PlatformDetailsScreen.routeName}/:platformId',
-        pageBuilder: (context, state) {
-          final platform = state.extra as FundingPlatform?;
-          if (platform == null) {
-            return _buildPage(
-              const Scaffold(
-                body: Center(child: Text('Platform not found')),
-              ),
-              state,
-            );
-          }
-          return _buildPage(PlatformDetailsScreen(platform: platform), state);
-        },
+        path: TransactionHistoryScreen.routeName,
+        pageBuilder: (context, state) => _buildPage(const TransactionHistoryScreen(), state),
+      ),
+      GoRoute(
+        path: PaymentMethodsScreen.routeName,
+        pageBuilder: (context, state) => _buildPage(const PaymentMethodsScreen(), state),
+      ),
+      GoRoute(
+        path: AddPaymentMethodScreen.routeName,
+        pageBuilder: (context, state) => _buildPage(const AddPaymentMethodScreen(), state),
       ),
     ],
     errorPageBuilder: (context, state) => _buildPage(

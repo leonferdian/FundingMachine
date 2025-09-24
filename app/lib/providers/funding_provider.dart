@@ -116,17 +116,17 @@ class FundingProvider with ChangeNotifier {
     }
   }
   
-  // Save a new payment method
-  Future<void> savePaymentMethod(Map<String, dynamic> paymentMethod) async {
+  // Remove a payment method
+  Future<void> removePaymentMethod(String paymentMethodId) async {
     _setLoading(true);
     _error = null;
-    
+
     try {
-      await _fundingService.savePaymentMethod(paymentMethod);
+      await _fundingService.removePaymentMethod(paymentMethodId);
       await loadPaymentMethods(); // Refresh the list
       _error = null;
     } catch (e) {
-      _error = 'Failed to save payment method: ${e.toString()}';
+      _error = 'Failed to remove payment method: ${e.toString()}';
       debugPrint(_error);
       rethrow;
     } finally {

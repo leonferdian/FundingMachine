@@ -230,15 +230,22 @@ class FundingService {
     }
   }
 
-  /// Get saved payment methods
-  Future<List<Map<String, dynamic>>> getSavedPaymentMethods() async {
+  /// Remove payment method
+  Future<void> removePaymentMethod(String paymentMethodId) async {
     try {
-      final methodsJson = await _storage.read(key: _paymentMethodKey) ?? '[]';
-      final List<dynamic> methods = jsonDecode(methodsJson);
-      return List<Map<String, dynamic>>.from(methods);
+      final methods = await getSavedPaymentMethods();
+      final updatedMethods = methods.where((method) => method['id'] != paymentMethodId).toList();
+      await _storage.write(
+        key: _paymentMethodKey,
+        value: jsonEncode(updatedMethods),
+      );
+      _logEvent?.call('payment_method_removed', {'method_id': paymentMethodId});
     } catch (e) {
-      _logEvent?.call('payment_methods_fetch_failed', {'error': e.toString()});
-      return [];
+      _logEvent?.call('payment_method_remove_failed', {
+        'error': e.toString(),
+        'method_id': paymentMethodId,
+      });
+      rethrow;
     }
   }
 
