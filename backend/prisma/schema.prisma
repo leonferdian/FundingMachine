@@ -24,6 +24,9 @@ model User {
   transactions  Transaction[]
   subscriptions Subscription[]
   paymentMethods PaymentMethod[]
+  notificationSettings NotificationSettings?
+  devices              UserDevice[]
+  notifications        Notification[]
   createdAt     DateTime       @default(now())
   updatedAt     DateTime       @updatedAt
 }
@@ -117,16 +120,262 @@ model Subscription {
   updatedAt   DateTime          @updatedAt
 }
 
-model SubscriptionPlan {
-  id          String    @id @default(uuid())
-  name        String    @unique
+model NotificationSettings {
+  id           String   @id @default(uuid())
+  userId       String   @unique
+  user         User     @relation(fields: [userId], references: [id])
+  pushEnabled  Boolean  @default(true)
+  emailEnabled Boolean  @default(true)
+  smsEnabled   Boolean  @default(false)
+  fundingUpdates Boolean @default(true)
+  transactionAlerts Boolean @default(true)
+  systemAlerts Boolean @default(true)
+  marketingEmails Boolean @default(false)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model UserDevice {
+  id        String   @id @default(uuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+  deviceToken String @unique
+  deviceType DeviceType
+  isActive  Boolean  @default(true)
+  lastSeen  DateTime @default(now())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([userId, deviceToken])
+}
+
+model Notification {
+  id          String         @id @default(uuid())
+  userId      String
+  user        User           @relation(fields: [userId], references: [id])
+  type        NotificationType
+  title       String
+  message     String
+  data        Json?          // Additional data for the notification
+  isRead      Boolean        @default(false)
+  isDelivered Boolean        @default(false)
+  deliveredAt DateTime?
+  readAt      DateTime?
+  expiresAt   DateTime?
+  createdAt   DateTime       @default(now())
+  updatedAt   DateTime       @updatedAt
+}
+
+model SyncLog {
+  id            String   @id @default(uuid())
+  userId        String
+  user          User     @relation(fields: [userId], references: [id])
+  deviceId      String
+  status        SyncStatus
+  syncedAt      DateTime @default(now())
+  conflictsResolved Int    @default(0)
+  error         String?
+  version       BigInt
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+}
+
+model OfflineQueue {
+  id          String   @id @default(uuid())
+  userId      String
+  user        User     @relation(fields: [userId], references: [id])
+  deviceId    String
+  operation   String   // 'create', 'update', 'delete'
+  entityType  String   // 'funding', 'transaction', 'payment_method'
+  entityId    String
+  data        Json
+  timestamp   DateTime @default(now())
+  synced      Boolean  @default(false)
+  syncedAt    DateTime?
+  retryCount  Int      @default(0)
+  maxRetries  Int      @default(3)
+  nextRetryAt DateTime?
+  lastError   String?
+  priority    String   @default('medium') // 'low', 'medium', 'high'
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model SyncConflict {
+  id          String   @id @default(uuid())
+  userId      String
+  user        User     @relation(fields: [userId], references: [id])
+  entityType  String
+  entityId    String
+  serverData  Json
+  clientData  Json
+  conflictFields String[] // Array of field names that conflict
+  detectedAt  DateTime @default(now())
+  resolved    Boolean  @default(false)
+  resolution  String?  // 'server_wins', 'client_wins', 'merge', 'manual'
+  resolvedData Json?
+  resolvedAt  DateTime?
+  resolvedBy  String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model UserAnalytics {
+  id          String   @id @default(cuid())
+  userId      String
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  // Session tracking
+  sessionId   String
+  sessionStart DateTime @default(now())
+  sessionEnd   DateTime?
+  sessionDuration Int?   // in seconds
+
+  // Page/Screen tracking
+  screenName  String
+  route       String?
+  previousScreen String?
+
+  // User actions
+  action      String   // 'view', 'click', 'search', 'filter', 'create', 'update', 'delete', 'share', 'export'
+  actionDetails Json?  // Additional details about the action
+
+  // Device and platform info
+  deviceType  String   // 'mobile', 'tablet', 'desktop'
+  platform    String   // 'android', 'ios', 'web', 'windows', 'macos', 'linux'
+  appVersion  String?
+  deviceInfo  Json?    // Additional device information
+
+  // Location data (optional)
+  country     String?
+  region      String?
+  city        String?
+
+  // Metadata
+  ipAddress   String?
+  userAgent   String?
+  timestamp   DateTime @default(now())
+
+  // Performance metrics
+  loadTime    Int?     // Page load time in milliseconds
+  errorCount  Int      @default(0)
+  errorDetails Json?   // Any errors encountered
+
+  @@index([userId, timestamp])
+  @@index([sessionId])
+  @@index([screenName])
+  @@index([action])
+  @@map("user_analytics")
+}
+
+model FundingAnalytics {
+  id          String   @id @default(cuid())
+  userId      String
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  // Platform interaction
+  platformId  String
+  platform    FundingPlatform @relation(fields: [platformId], references: [id], onDelete: Cascade)
+
+  // Interaction type
+  interactionType String // 'view', 'favorite', 'apply', 'funded', 'review', 'share'
+
+  // Financial data
+  amountInvested Decimal? @db.Decimal(15,2)
+  expectedReturn Decimal? @db.Decimal(5,2)
+  riskLevel   String?  // 'low', 'medium', 'high'
+
+  // User feedback
+  rating      Int?     // 1-5 star rating
+  review      String?
+  recommendationScore Int? // -10 to 10, how likely to recommend
+
+  // Conversion tracking
+  conversionStep String? // 'discovery', 'research', 'application', 'funding', 'monitoring'
+  conversionValue Decimal? @db.Decimal(15,2)
+
+  // Time tracking
+  timeSpent   Int?     // Time spent on platform page in seconds
+  firstSeen   DateTime @default(now())
+  lastInteraction DateTime @default(now())
+
+  // Metadata
+  sessionId   String
+  deviceType  String
+  platform    String   // 'android', 'ios', 'web', etc.
+  timestamp   DateTime @default(now())
+
+  @@index([userId, platformId])
+  @@index([interactionType])
+  @@index([timestamp])
+  @@map("funding_analytics")
+}
+
+model SystemAnalytics {
+  id          String   @id @default(cuid())
+
+  // System metrics
+  metricType  String   // 'performance', 'error', 'usage', 'business'
+  metricName  String   // 'api_response_time', 'error_rate', 'active_users', 'total_funding', etc.
+
+  // Metric value
+  value       Decimal  @db.Decimal(20,6)
+  unit        String?  // 'ms', 'count', 'percentage', 'currency', etc.
+
+  // Aggregation info
+  period      String   // 'minute', 'hour', 'day', 'week', 'month'
+  periodStart DateTime
+  periodEnd   DateTime
+
+  // Metadata
+  tags        Json?    // Additional tags for categorization
+  metadata    Json?    // Additional metadata
+  timestamp   DateTime @default(now())
+
+  @@index([metricType, metricName])
+  @@index([period, periodStart])
+  @@index([timestamp])
+  @@map("system_analytics")
+}
+
+model AnalyticsReport {
+  id          String   @id @default(cuid())
+  userId      String
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  // Report configuration
+  reportType  String   // 'user_engagement', 'financial_performance', 'platform_usage', 'custom'
+  reportName  String
   description String?
-  price       Float
-  duration    Int       // in days
-  isActive    Boolean   @default(true)
-  features    Json      // Store as JSON array
-  createdAt   DateTime  @default(now())
-  updatedAt   DateTime  @updatedAt
+
+  // Date range
+  dateFrom    DateTime
+  dateTo      DateTime
+
+  // Filters and parameters
+  filters     Json     // Report-specific filters
+  parameters  Json?    // Additional parameters
+
+  // Report data (cached)
+  data        Json     // Cached report data
+  dataHash    String   // Hash of the data for cache invalidation
+  lastUpdated DateTime @default(now())
+
+  // Scheduling
+  isScheduled Boolean  @default(false)
+  scheduleConfig Json?  // Cron expression or schedule config
+
+  // Access control
+  isPublic    Boolean  @default(false)
+  sharedWith  Json?    // List of user IDs with access
+
+  // Metadata
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([userId, reportType])
+  @@index([isScheduled])
+  @@map("analytics_reports")
 }
 
 enum Role {
@@ -173,10 +422,30 @@ enum TransactionStatus {
   CANCELLED
 }
 
-enum SubscriptionStatus {
-  ACTIVE
-  CANCELLED
-  EXPIRED
-  PAYMENT_FAILED
-  RENEWED
+enum NotificationType {
+  FUNDING_UPDATE
+  TRANSACTION_ALERT
+  SYSTEM_ALERT
+  SECURITY_ALERT
+  MARKETING
+  PAYMENT_REMINDER
+  SUBSCRIPTION_REMINDER
+  PLATFORM_MAINTENANCE
+  NEW_FEATURE
+  ACHIEVEMENT
+}
+
+enum DeviceType {
+  ANDROID
+  IOS
+  WEB
+  DESKTOP
+}
+
+enum SyncStatus {
+  SYNCED
+  PENDING
+  CONFLICT
+  ERROR
+  OFFLINE
 }

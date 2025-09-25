@@ -21,3 +21,7 @@ final authServiceProvider = Provider<AuthService>((ref) {
 final fundingServiceProvider = Provider<FundingService>((ref) {
   return FundingService();
 });
+
+final webSocketServiceProvider = Provider<WebSocketService>((ref) {
+  return WebSocketService();
+});

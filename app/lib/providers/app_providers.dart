@@ -5,9 +5,15 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 // Services
 import '../services/auth_service.dart';
+import '../services/api_service.dart';
+import '../services/websocket_service.dart';
+import '../services/notification_service.dart';
+import '../services/offline_service.dart';
 
 // Providers
 import 'auth_provider.dart';
+import 'notification_provider.dart';
+import 'offline_provider.dart';
 
 /// Shared Preferences Provider
 /// This provider gives access to SharedPreferences
@@ -15,11 +21,28 @@ final sharedPreferencesProvider = Provider<SharedPreferences>((ref) {
   throw UnimplementedError('SharedPreferencesProvider not initialized');
 });
 
-/// Auth Service Provider
-/// Provides the authentication service with shared preferences
-final authServiceProvider = Provider<AuthService>((ref) {
-  final sharedPrefs = ref.watch(sharedPreferencesProvider);
-  return AuthService(sharedPrefs);
+/// API Service Provider
+/// Provides the API service for HTTP requests
+final apiServiceProvider = Provider<ApiService>((ref) {
+  return ApiService();
+});
+
+/// WebSocket Service Provider
+/// Provides the WebSocket service for real-time updates
+final webSocketServiceProvider = Provider<WebSocketService>((ref) {
+  final apiService = ref.watch(apiServiceProvider);
+  return WebSocketService(apiService: apiService);
+});
+
+/// Offline Service Provider
+/// Provides the offline service for data synchronization
+final offlineServiceProvider = Provider<OfflineService>((ref) {
+  final apiService = ref.watch(apiServiceProvider);
+  final notificationService = ref.watch(notificationServiceProvider);
+  return OfflineService(
+    apiService: apiService,
+    notificationService: notificationService,
+  );
 });
 
 /// Auth State Notifier Provider

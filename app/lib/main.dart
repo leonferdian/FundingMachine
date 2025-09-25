@@ -7,18 +7,11 @@ import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:provider/provider.dart' as provider;
-import 'package:shared_preferences/shared_preferences.dart';
-
-import 'constants/app_theme.dart';
-import 'constants/strings.dart';
-import 'providers.dart';
-import 'providers/auth_provider.dart';
-import 'providers/theme_provider.dart';
-import 'routes/app_router.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
+import 'providers/app_providers.dart';
+import 'services/offline_service.dart';
 import 'services/analytics_service.dart';
-import 'services/auth_service.dart';
-import 'services/localization_service.dart';
-import 'services/navigation_service.dart';
 
 // Initialize navigation service
 final navigationService = NavigationService();
@@ -128,10 +121,11 @@ Future<void> _initializeApp() async {
     // Ensure Flutter binding is initialized
     WidgetsFlutterBinding.ensureInitialized();
     
-    // Initialize services
-    final prefs = await SharedPreferences.getInstance();
-    await AnalyticsService.initialize();
-    await LocalizationService.initialize();
+    // Initialize Firebase
+    await Firebase.initializeApp();
+    
+    // Initialize Firebase Messaging
+    await FirebaseMessaging.instance.setAutoInitEnabled(true);
     
     // Set preferred orientations
     await SystemChrome.setPreferredOrientations([
@@ -150,11 +144,18 @@ Future<void> _initializeApp() async {
     // Initialize shared preferences
     final sharedPreferences = await SharedPreferences.getInstance();
   
+    // Initialize offline service
+    final offlineService = OfflineService(
+      apiService: ApiService(),
+      notificationService: NotificationService(
+        apiService: ApiService(),
+        webSocketService: WebSocketService(apiService: ApiService()),
+      ),
+    );
+    await offlineService.initialize();
+  
     runApp(
       ProviderScope(
-        overrides: [
-          sharedPreferencesProvider.overrideWithValue(sharedPreferences),
-        ],
         child: provider.MultiProvider(
           providers: [
             provider.ChangeNotifierProvider(create: (_) => ThemeProvider()),

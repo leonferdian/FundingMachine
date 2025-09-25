@@ -1,5 +1,6 @@
 import { Router, Request, Response, NextFunction, RequestHandler } from 'express';
 import { body, validationResult, ValidationChain } from 'express-validator';
+import { protect } from '../utils/jwt';
 import authRoutes from './auth.routes';
 import bankAccountRoutes from './bankAccount.routes';
 import fundingPlatformRoutes from './fundingPlatform.routes';
@@ -9,6 +10,9 @@ import subscriptionRoutes from './subscription.routes';
 import healthRoutes from './health.routes';
 import aiRoutes from './ai.routes';
 import paymentMethodRoutes from './paymentMethod.routes';
+import notificationRoutes from './notification.routes';
+import syncRoutes from './sync.routes';
+import analyticsRoutes from './analytics.routes';
 
 const router = Router();
 
@@ -24,13 +28,13 @@ router.get('/', (req, res) => {
       bankAccounts: '/api/bank-accounts',
       fundingPlatforms: '/api/funding-platforms',
       fundings: '/api/funding',
-      transactions: '/api/transactions',
+      sync: '/api/sync',
       subscriptions: '/api/subscriptions',
-      paymentMethods: '/api/payment-methods',
+      notifications: '/api/notifications',
+      analytics: '/api/analytics',
       health: '/api/health',
       ai: {
         chat: '/api/ai/chat',
-        analyzeTransactions: '/api/ai/analyze/transactions',
         recommendations: '/api/ai/recommendations',
         fraudDetection: '/api/ai/fraud/detect',
         financialSummary: '/api/ai/summary/financial'
@@ -89,17 +93,9 @@ router.use('/funding-platforms', protect, fundingPlatformRoutes);
 router.use('/funding', protect, fundingRoutes);
 router.use('/transactions', protect, transactionRoutes);
 router.use('/subscriptions', protect, subscriptionRoutes);
+router.use('/sync', protect, syncRoutes);
+router.use('/notifications', protect, notificationRoutes);
 router.use('/payment-methods', protect, paymentMethodRoutes);
 router.use('/ai', protect, aiRoutes);
+router.use('/analytics', protect, analyticsRoutes);
 router.use('/health', healthRoutes);
-
-// 404 handler for /api/* routes
-router.use('*', (req, res) => {
-  res.status(404).json({
-    success: false,
-    message: 'API endpoint not found',
-    path: req.originalUrl
-  });
-});
-
-export default router;

@@ -10,6 +10,8 @@ import { configureDI, diContainer as container } from './config/di.config';
 import routes from './routes';
 import config from './config/config';
 import { PrismaClient } from '@prisma/client';
+import { Server } from 'http';
+import { WebSocketManager } from './config/websocket.config';
 
 // Initialize Express app
 const app = express();
@@ -23,9 +25,9 @@ const limiter = rateLimit({
   max: 100, // limit each IP to 100 requests per windowMs
   standardHeaders: true, // Return rate limit info in the `RateLimit-*` headers
   legacyHeaders: false, // Disable the `X-RateLimit-*` headers
-  message: { 
-    success: false, 
-    message: 'Too many requests from this IP, please try again after 15 minutes' 
+  message: {
+    success: false,
+    message: 'Too many requests from this IP, please try again after 15 minutes'
   }
 });
 
@@ -37,15 +39,15 @@ app.use(cors({
   origin: (origin, callback) => {
     // Allow requests with no origin (like mobile apps, curl, etc.)
     if (!origin) return callback(null, true);
-    
-    if (config.cors.allowedOrigins.includes(origin) || 
-        config.cors.allowedOrigins.some(allowedOrigin => 
-          allowedOrigin.startsWith('http://*') || 
+
+    if (config.cors.allowedOrigins.includes(origin) ||
+        config.cors.allowedOrigins.some(allowedOrigin =>
+          allowedOrigin.startsWith('http://*') ||
           allowedOrigin.startsWith('https://*')
         )) {
       return callback(null, true);
     }
-    
+
     const msg = 'The CORS policy for this site does not allow access from the specified Origin.';
     return callback(new Error(msg), false);
   },
@@ -72,7 +74,7 @@ if (process.env.NODE_ENV === 'development') {
 app.use((req: Request, res: Response, next: NextFunction) => {
   // Log request details
   console.log(`[${new Date().toISOString()}] ${req.method} ${req.originalUrl} - ${req.ip}`);
-  
+
   // Log request body (except for sensitive data)
   if (req.body && Object.keys(req.body).length > 0) {
     const body = { ...req.body };
@@ -80,10 +82,10 @@ app.use((req: Request, res: Response, next: NextFunction) => {
     if (body.password) body.password = '***';
     if (body.newPassword) body.newPassword = '***';
     if (body.confirmPassword) body.confirmPassword = '***';
-    
+
     console.log('Request body:', body);
   }
-  
+
   next();
 });
 
@@ -108,21 +110,18 @@ app.use('*', (req: Request, res: Response) => {
 app.use(errorHandler);
 
 // Store server instance for graceful shutdown
-import { Server } from 'http';
 let server: Server | undefined;
 let webSocketManager: WebSocketManager | undefined;
-
-
 
 // Configure dependency injection
 const initializeApp = () => {
   try {
     // Set up dependency injection
     configureDI();
-    
+
     // Get Prisma client for database connection
     const prisma = container.resolve<PrismaClient>('PrismaClient');
-    
+
     // Test database connection
     prisma.$connect()
       .then(() => console.log('✅ Database connected successfully'))
@@ -130,7 +129,7 @@ const initializeApp = () => {
         console.error('❌ Database connection error:', err);
         throw err;
       });
-    
+
     return { prisma };
   } catch (error) {
     console.error('❌ Failed to initialize application:', error);
@@ -142,11 +141,10 @@ const startServer = async () => {
   try {
     // Initialize application (DI, DB connection, etc.)
     const { prisma } = initializeApp();
-    
+
     // Start server
     server = app.listen(config.port, () => {
-      console.log(`
-🚀 Server running in ${config.env} mode on port ${config.port}`);
+      console.log(`\n🚀 Server running in ${config.env} mode on port ${config.port}`);
       console.log(`📚 API Documentation: http://localhost:${config.port}/api-docs`);
     });
 
@@ -155,12 +153,15 @@ const startServer = async () => {
       webSocketManager = new WebSocketManager(server);
       console.log('✅ WebSocket server started successfully');
     }
+
+    // Handle server errors
+    server.on('error', (error: NodeJS.ErrnoException) => {
       if (error.syscall !== 'listen') {
         throw error;
       }
 
-      const bind = typeof config.port === 'string' 
-        ? 'Pipe ' + config.port 
+      const bind = typeof config.port === 'string'
+        ? 'Pipe ' + config.port
         : 'Port ' + config.port;
 
       // Handle specific listen errors with friendly messages
@@ -177,35 +178,37 @@ const startServer = async () => {
           throw error;
       }
     });
-    
+
     // Handle graceful shutdown
     const shutdown = async () => {
       console.log('\n🛑 Shutting down server...');
-      
+
       // Close server
-      server.close(async () => {
-        console.log('✅ Server closed');
-        
-        // Close database connection
-        if (prisma) {
-          await prisma.$disconnect();
-          console.log('✅ Database connection closed');
-        }
-        
-        process.exit(0);
-      });
-      
+      if (server) {
+        server.close(async () => {
+          console.log('✅ Server closed');
+
+          // Close database connection
+          if (prisma) {
+            await prisma.$disconnect();
+            console.log('✅ Database connection closed');
+          }
+
+          process.exit(0);
+        });
+      }
+
       // Force shutdown after timeout
       setTimeout(() => {
         console.error('❌ Forcing shutdown...');
         process.exit(1);
       }, 10000);
     };
-    
+
     // Handle process termination
     process.on('SIGTERM', shutdown);
     process.on('SIGINT', shutdown);
-    
+
   } catch (error) {
     console.error('❌ Failed to start server:', error);
     process.exit(1);
