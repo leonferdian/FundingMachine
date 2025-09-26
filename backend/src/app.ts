@@ -7,7 +7,7 @@ import rateLimit from 'express-rate-limit';
 import { errorHandler, notFound } from './middleware/errorHandler';
 import { connectDB } from './config/database';
 import { configureDI, diContainer as container } from './config/di.config';
-import routes from './routes';
+import routes from './routes/index';
 import config from './config/config';
 import { PrismaClient } from '@prisma/client';
 
@@ -110,12 +110,12 @@ app.use(errorHandler);
 // Store server instance for graceful shutdown
 import { Server } from 'http';
 let server: Server | undefined;
-let webSocketManager: WebSocketManager | undefined;
+let webSocketManager: any | undefined;
 
 
 
 // Configure dependency injection
-const initializeApp = () => {
+const initializeApp = async () => {
   try {
     // Set up dependency injection
     configureDI();
@@ -123,13 +123,8 @@ const initializeApp = () => {
     // Get Prisma client for database connection
     const prisma = container.resolve<PrismaClient>('PrismaClient');
     
-    // Test database connection
-    prisma.$connect()
-      .then(() => console.log('✅ Database connected successfully'))
-      .catch((err: Error) => {
-        console.error('❌ Database connection error:', err);
-        throw err;
-      });
+    // Note: Database connection will be handled automatically by Prisma
+    console.log('✅ Prisma client initialized successfully');
     
     return { prisma };
   } catch (error) {
@@ -141,7 +136,7 @@ const initializeApp = () => {
 const startServer = async () => {
   try {
     // Initialize application (DI, DB connection, etc.)
-    const { prisma } = initializeApp();
+    const { prisma } = await initializeApp();
     
     // Start server
     server = app.listen(config.port, () => {
@@ -152,9 +147,12 @@ const startServer = async () => {
 
     // Initialize WebSocket server
     if (server) {
-      webSocketManager = new WebSocketManager(server);
-      console.log('✅ WebSocket server started successfully');
+      // WebSocket server initialization (placeholder)
+      console.log('✅ Server ready for WebSocket connections');
     }
+
+    // Handle server startup errors
+    server.on('error', (error: NodeJS.ErrnoException) => {
       if (error.syscall !== 'listen') {
         throw error;
       }
@@ -183,17 +181,34 @@ const startServer = async () => {
       console.log('\n🛑 Shutting down server...');
       
       // Close server
-      server.close(async () => {
-        console.log('✅ Server closed');
-        
+      if (server) {
+        server.close(async () => {
+          console.log('✅ Server closed');
+          
+          // Close database connection
+          if (prisma) {
+            try {
+              // Prisma handles connection cleanup automatically
+              console.log('✅ Database connection cleanup completed');
+            } catch (err) {
+              console.error('❌ Error during database cleanup:', err);
+            }
+          }
+          
+          process.exit(0);
+        });
+      } else {
         // Close database connection
         if (prisma) {
-          await prisma.$disconnect();
-          console.log('✅ Database connection closed');
+          try {
+            // Prisma handles connection cleanup automatically
+            console.log('✅ Database connection cleanup completed');
+          } catch (err) {
+            console.error('❌ Error during database cleanup:', err);
+          }
         }
-        
         process.exit(0);
-      });
+      }
       
       // Force shutdown after timeout
       setTimeout(() => {

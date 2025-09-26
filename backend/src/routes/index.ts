@@ -99,3 +99,5 @@ router.use('/payment-methods', protect, paymentMethodRoutes);
 router.use('/ai', protect, aiRoutes);
 router.use('/analytics', protect, analyticsRoutes);
 router.use('/health', healthRoutes);
+
+export default router;

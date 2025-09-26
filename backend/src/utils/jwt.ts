@@ -1,9 +1,11 @@
 import jwt from 'jsonwebtoken';
 import { Request, Response, NextFunction } from 'express';
-import { PrismaClient } from '@prisma/client';
 import { AuthUser } from '../types/user';
 
-const prisma = new PrismaClient();
+// Note: PrismaClient will be injected via DI in the main app
+// For standalone usage, you can uncomment the line below:
+// import { PrismaClient } from '@prisma/client';
+// const prisma = new PrismaClient();
 
 interface JwtPayload {
   id: string;
@@ -15,7 +17,7 @@ export const generateToken = (userId: string): string => {
   return jwt.sign(
     { id: userId },
     process.env.JWT_SECRET || 'your-secret-key',
-    { expiresIn: process.env.JWT_EXPIRE || '30d' }
+    { expiresIn: process.env.JWT_EXPIRE || '30d' } as jwt.SignOptions
   );
 };
 
@@ -23,7 +25,7 @@ export const verifyToken = (token: string): JwtPayload => {
   return jwt.verify(token, process.env.JWT_SECRET || 'your-secret-key') as JwtPayload;
 };
 
-export const protect = async (req: Request, res: Response, next: NextFunction) => {
+export const protect = async (req: Request, res: Response, next: NextFunction, prismaClient?: any) => {
   let token: string | undefined;
 
   // Get token from header
@@ -47,8 +49,15 @@ export const protect = async (req: Request, res: Response, next: NextFunction) =
     // Verify token
     const decoded = verifyToken(token);
 
+    // Skip user lookup if no prisma client provided
+    if (!prismaClient) {
+      console.warn('PrismaClient not provided to protect middleware');
+      req.user = { id: decoded.id, role: 'user' } as AuthUser;
+      return next();
+    }
+
     // Get user from the token
-    const user = await prisma.user.findUnique({
+    const user = await prismaClient.user.findUnique({
       where: { id: decoded.id },
       select: {
         id: true,

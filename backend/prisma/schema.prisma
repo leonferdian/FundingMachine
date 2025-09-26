@@ -27,6 +27,12 @@ model User {
   notificationSettings NotificationSettings?
   devices              UserDevice[]
   notifications        Notification[]
+  userAnalytics        UserAnalytics[]
+  fundingAnalytics     FundingAnalytics[]
+  analyticsReports     AnalyticsReport[]
+  syncLogs             SyncLog[]
+  syncConflicts        SyncConflict[]
+  offlineQueues        OfflineQueue[]
   createdAt     DateTime       @default(now())
   updatedAt     DateTime       @updatedAt
 }
@@ -73,6 +79,7 @@ model FundingPlatform {
   createdAt   DateTime  @default(now())
   updatedAt   DateTime  @updatedAt
   fundings    Funding[]
+  fundingAnalytics FundingAnalytics[]
 }
 
 model Funding {
@@ -111,7 +118,7 @@ model Subscription {
   planId      String
   amount      Float
   startDate   DateTime
-  endDate     DateTime
+  endDate     DateTime?
   status      SubscriptionStatus @default(ACTIVE)
   autoRenew   Boolean           @default(true)
   paymentId   String?
@@ -171,7 +178,7 @@ model SyncLog {
   userId        String
   user          User     @relation(fields: [userId], references: [id])
   deviceId      String
-  status        SyncStatus
+  status        SyncStatus @default(PENDING)
   syncedAt      DateTime @default(now())
   conflictsResolved Int    @default(0)
   error         String?
@@ -196,7 +203,8 @@ model OfflineQueue {
   maxRetries  Int      @default(3)
   nextRetryAt DateTime?
   lastError   String?
-  priority    String   @default('medium') // 'low', 'medium', 'high'
+  priority    String   @default("medium")
+  // 'low', 'medium', 'high'
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
 }
@@ -242,7 +250,7 @@ model UserAnalytics {
 
   // Device and platform info
   deviceType  String   // 'mobile', 'tablet', 'desktop'
-  platform    String   // 'android', 'ios', 'web', 'windows', 'macos', 'linux'
+  clientPlatform String   // 'android', 'ios', 'web', 'windows', 'macos', 'linux'
   appVersion  String?
   deviceInfo  Json?    // Additional device information
 
@@ -302,7 +310,7 @@ model FundingAnalytics {
   // Metadata
   sessionId   String
   deviceType  String
-  platform    String   // 'android', 'ios', 'web', etc.
+  devicePlatform String   // 'android', 'ios', 'web', etc.
   timestamp   DateTime @default(now())
 
   @@index([userId, platformId])
@@ -440,6 +448,13 @@ enum DeviceType {
   IOS
   WEB
   DESKTOP
+}
+
+enum SubscriptionStatus {
+  ACTIVE
+  PAUSED
+  CANCELLED
+  EXPIRED
 }
 
 enum SyncStatus {
